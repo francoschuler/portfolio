@@ -1,0 +1,36 @@
+<div>
+    <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></button>
+</div>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side">
+        <h1>HOLA!</h1>
+        <mat-nav-list>
+            <a href="">
+                <mat-icon>home</mat-icon>
+                Home
+            </a>
+            <a href="">
+                <mat-icon>person_outline</mat-icon>
+                About me
+            </a>
+            <a href="">
+                Skills
+            </a>
+            <a href="">
+                Projects
+            </a>
+            <a href="">
+                <mat-icon>mail_outline</mat-icon>
+                Contact
+            </a>
+            <a href="">
+                Login
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
