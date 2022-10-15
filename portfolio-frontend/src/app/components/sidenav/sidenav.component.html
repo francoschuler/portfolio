@@ -1,36 +1,65 @@
-<div>
-    <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></button>
+<div class="ham-menu" *ngIf="!sidenav.opened && mobileQuery.matches">
+    <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
 </div>
 
 <mat-sidenav-container>
-    <mat-sidenav #sidenav opened mode="side">
-        <h1>HOLA!</h1>
+    <mat-sidenav backdrop="true" #sidenav opened disableClose="true" [mode]="mobileQuery.matches ? 'over' : 'side'">
+        <div class="ham-menu" *ngIf="sidenav.opened && mobileQuery.matches">
+            <button mat-icon-button (click)="sidenav.close()"> <mat-icon>cross</mat-icon> </button>
+        </div>
+        <div class="user">
+            <div class="user-img">
+                <div class="user-img-edit">
+                    <button mat-icon-button><mat-icon>edit</mat-icon></button>
+                </div>
+            </div>
+            <h2 class="username">Franco Exequiel Schuler</h2>
+
+            <div class="user-social">
+                <a href="https://www.linkedin.com/in/franco-exequiel-schuler/">
+                    <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+                
+
+                <a href="https://www.linkedin.com/in/franco-exequiel-schuler/">
+                    <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+            </div>
+        </div>
+        
         <mat-nav-list>
-            <a href="">
-                <mat-icon>home</mat-icon>
-                Home
-            </a>
-            <a href="">
-                <mat-icon>person_outline</mat-icon>
-                About me
-            </a>
-            <a href="">
-                Skills
-            </a>
-            <a href="">
-                Projects
-            </a>
-            <a href="">
-                <mat-icon>mail_outline</mat-icon>
-                Contact
-            </a>
-            <a href="">
-                Login
-            </a>
+            <ul>
+                <li *ngFor="let link of links">
+                    <a (click)="onClickScroll(link.route)">
+                        <mat-icon>{{link.icon}}</mat-icon>
+                        {{link.name}}
+                    </a>
+                </li>
+            
+                <!-- <li>
+                    <a (click)="onClickScroll('projects')">
+                        <mat-icon>domain</mat-icon>
+                        Projects
+                    </a>
+                </li>
+                <li>
+                    <a (click)="onClickScroll('contact')">
+                        <mat-icon>mail_outline</mat-icon>
+                        Contact
+                    </a>
+                </li>
+                <li>    
+                    <a href="">
+                        <mat-icon>lock_open</mat-icon>
+                        Login
+                    </a>
+                </li> -->
+            </ul>
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
+
 </mat-sidenav-container>

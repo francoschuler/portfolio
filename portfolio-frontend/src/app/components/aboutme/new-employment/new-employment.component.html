@@ -1,0 +1,30 @@
+
+<h2 mat-dialog-title> {{formType}} an employment entry </h2>
+
+<mat-dialog-content>
+    This will add a new employment entry with the information provided below.
+
+    <form [formGroup]="newEmployment">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Title" formControlName="title" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Subtitle" formControlName="subtitle" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Period" formControlName="period" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput type="text" placeholder="Description" formControlName="description" rows="10" required></textarea>
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button class="cancel-button" (click)="cancelSave()"> Cancel <mat-icon> cancel </mat-icon> </button>
+    <button mat-button class="save-button" [disabled]="newEmployment.invalid" (click)="saveEmployment()"> Save <mat-icon> save </mat-icon> </button>
+</mat-dialog-actions>

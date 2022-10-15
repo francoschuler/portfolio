@@ -1,0 +1,70 @@
+@use "variables" as v;
+
+
+
+// .aboutme-content {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+// }
+
+.title {
+
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    color: v.$white;
+    margin: 1.5rem 0;
+
+    h2 { margin: 0; }
+
+    mat-icon { color: v.$green; }
+
+}
+
+mat-card {
+
+    background-color: v.$background;
+    color: v.$white;
+    border: 4px solid v.$light-blue;
+    border-radius: 0;
+    margin: .5rem;
+
+    mat-card-title {
+
+        display: flex;
+        font-size: large;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: -1.5rem;
+        margin-bottom: 0;
+    }
+
+
+    mat-card-subtitle {
+        color: v.$white;
+        font-style: italic;
+    }
+
+    mat-card-actions {
+        display: flex;
+    }
+}
+
+
+
+.edit-icon {
+    color: v.$yellow;
+}
+
+.delete-icon {
+    color: v.$red;
+}
+
+.alert-card {
+    background-color: v.$red;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    border-radius: 10px;
+}

@@ -1,0 +1,16 @@
+@import 'variables';
+
+h2, mat-dialog-content { color: $background }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-button {
+    color: $background;
+}
+
+.cancel-button {
+    color: $red;
+}

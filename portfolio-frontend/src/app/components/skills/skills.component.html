@@ -1,0 +1,95 @@
+<div class="container" id="skills">
+    <h1 class="section-title">Skills</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut vitae neque perspiciatis dignissimos delectus ratione, repellendus enim consequuntur? Officiis dignissimos at nam est perferendis qui a soluta in aspernatur fuga.</p>
+
+    <div class="skills-container grid">
+        <div class="frontend col-12 md:col-6 lg:col-4 xl:col-3">
+            <div class="title">
+                <h2 class="section-subtitle">Frontend</h2>
+                <button mat-icon-button (click)="openNewSkillDialog('Frontend')"><mat-icon>add_circle_outline</mat-icon></button>
+            </div>
+
+            <div class="skill" *ngFor="let feSkill of dataFrontend;">
+
+                <div class="skill-info">
+
+                    <div class="skill-icon-name">
+                        <i [class]="feSkill.icon" class="fa-xl"></i>
+                        <p class="skill-name"> {{feSkill.name}}</p>    
+                    </div>
+
+                    <div class="skill-actions">
+                        <button mat-icon-button (click)="openEditSkillDialog(feSkill.id, feSkill.name, feSkill.icon, 'Frontend', feSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                        <button mat-icon-button (click)="openConfirmationSkill(feSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                    </div>
+                </div>
+                
+                <div class="progress">
+                    <div class="progress-bar progress-bar-frontend progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" [style.width]="feSkill.level + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="backend col-12 md:col-6 lg:col-4 xl:col-3">
+            <div class="title">
+                <h2 class="section-subtitle">Backend</h2>
+                <button mat-icon-button (click)="openNewSkillDialog('Backend')"><mat-icon>add_circle_outline</mat-icon></button>
+            </div>
+            <div class="skill" *ngFor="let beSkill of dataBackend;">
+
+                <div class="skill-info">
+
+                    <div class="skill-icon-name">
+                        <i [class]="beSkill.icon" class="fa-xl"></i>
+                        <p class="skill-name"> {{beSkill.name}}</p>    
+                    </div>
+
+                    <div class="skill-actions">
+                        <button mat-icon-button (click)="openEditSkillDialog(beSkill.id, beSkill.name, beSkill.icon, 'Backend', beSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                        <button mat-icon-button (click)="openConfirmationSkill(beSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                    </div>
+                </div>
+                
+                <div class="progress">
+                    <div class="progress-bar progress-bar-backend progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" [style.width]="beSkill.level + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="others col-12 md:col-12 lg:col-4 xl:col-4">
+            <div class="title">
+                <h2 class="section-subtitle">Others</h2>
+                <button mat-icon-button (click)="openNewSkillDialog('Others')"><mat-icon>add_circle_outline</mat-icon></button>
+            </div>
+            <div class="skill" *ngFor="let oSkill of dataOthers;">
+
+                <div class="skill-info">
+
+                    <div class="skill-icon-name">
+                        <i [class]="oSkill.icon" class="fa-xl"></i>
+                        <p class="skill-name"> {{oSkill.name}}</p>    
+                    </div>
+
+                    <div class="skill-actions">
+                        <button mat-icon-button (click)="openEditSkillDialog(oSkill.id, oSkill.name, oSkill.icon, 'Others', oSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                        <button mat-icon-button (click)="openConfirmationSkill(oSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-others progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example"  [style.width]="oSkill.level + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <mat-card class="alert-card" *ngIf="noDataSkill">
+        <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
+        <mat-card-content> There is no skill entries available. </mat-card-content>
+    </mat-card>
+
+</div>

@@ -1,0 +1,141 @@
+{
+  "educations": [
+    {
+      "title": "Universidad Carlos III de Madrid",
+      "subtitle": "Degree in Computer Engineering (Final Average of 7.5 out of 10). Final Degree Project with a grade of 9.7 out of 10.",
+      "period": "2018-2022",
+      "description": "Prueba",
+      "id": 2
+    },
+    {
+      "title": "Fullstack Developer Course",
+      "subtitle": "Udemy course including technologies like Angular and Springboot",
+      "period": "2022",
+      "description": "Prueba",
+      "id": 3
+    },
+    {
+      "title": "Fullstack Developer Course",
+      "subtitle": "Udemy Course",
+      "period": "2022",
+      "description": "Udemy course using technologies like Angular and Springboot",
+      "id": 4
+    },
+    {
+      "title": "a",
+      "subtitle": "a",
+      "period": "a",
+      "description": "a",
+      "id": 5
+    },
+    {
+      "title": "a",
+      "subtitle": "a",
+      "period": "a",
+      "description": "a",
+      "id": 6
+    }
+  ],
+  "employments": [
+    {
+      "title": "Frontend Developer",
+      "subtitle": "Alcorcon, Madrid",
+      "period": "2020-2021",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est!",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Extracurricular IT Teacher",
+      "subtitle": "Alcorcon, Madrid",
+      "period": "2020-2021",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est!"
+    },
+    {
+      "title": "a",
+      "subtitle": "a",
+      "period": "a",
+      "description": "a",
+      "id": 3
+    },
+    {
+      "title": "A",
+      "subtitle": "a",
+      "period": "a",
+      "description": "a",
+      "id": 4
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python/Django",
+      "icon": "fa-brands fa-python",
+      "stack": "Backend",
+      "level": 70,
+      "id": 4
+    },
+    {
+      "name": "HTML",
+      "icon": "fa-brands fa-html5",
+      "stack": "Frontend",
+      "level": 50,
+      "id": 6
+    },
+    {
+      "name": "Javascript",
+      "icon": "fa-brands fa-js",
+      "stack": "Frontend",
+      "level": 60,
+      "id": 8
+    },
+    {
+      "name": "Springboot",
+      "icon": "fa-solid fa-feather-pointed",
+      "stack": "Backend",
+      "level": 50,
+      "id": 9
+    },
+    {
+      "name": "Docker",
+      "icon": "fa-brands fa-docker",
+      "stack": "Others",
+      "level": 50,
+      "id": 10
+    },
+    {
+      "name": "Github",
+      "icon": "fa-brands fa-github",
+      "stack": "Others",
+      "level": 100,
+      "id": 11
+    },
+    {
+      "name": "CSS",
+      "icon": "fa-brands fa-css3-alt",
+      "stack": "Frontend",
+      "level": 80,
+      "id": 12
+    },
+    {
+      "name": "Angular",
+      "icon": "fa-brands fa-angular",
+      "stack": "Frontend",
+      "level": 75,
+      "id": 13
+    },
+    {
+      "name": "PHP",
+      "icon": "fa-brands fa-php",
+      "stack": "Backend",
+      "level": 45,
+      "id": 14
+    },
+    {
+      "name": "Trello/Jira",
+      "icon": "fa-brands fa-trello",
+      "stack": "Others",
+      "level": 100,
+      "id": 15
+    }
+  ]
+}

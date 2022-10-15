@@ -1,0 +1,22 @@
+@import 'variables';
+
+* { color: $background }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-button {
+    color: $background;
+}
+
+.cancel-button {
+    color: $red;
+}
+
+.icon-input {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}

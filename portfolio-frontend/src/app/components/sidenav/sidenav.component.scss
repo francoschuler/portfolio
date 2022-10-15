@@ -1,3 +1,125 @@
+@import "variables";
+
+.ham-menu {
+    background-color: $background;
+    color: $white;
+}
+
 mat-sidenav-container {
     height: 100%;
+
+    mat-sidenav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: justify;
+        padding: 1.5rem;
+        border: none;
+        background-color: $background;
+
+        mat-nav-list a {
+            font-family: $secondary;
+            font-weight: $secondary-regular;
+            font-size: 1rem;
+        }
+
+    }
+
+    mat-sidenav-content{
+        background-color: $background;
+    }
 }
+
+ul {
+    line-height: 2rem;
+    padding-left: 3rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        color: $grey;
+        transition: ease-out .3s;
+    }
+
+    a:hover {
+        color: $white;
+        transition: ease .3s;
+    }
+
+    mat-icon {
+        transition: ease-out .3s;
+    }
+
+    a:hover mat-icon {
+        color: $light-blue;
+        transition: ease .3s;
+    }
+
+
+}
+
+.user {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+
+    .username {
+        text-align: center;
+        color:$white;
+    }
+
+    .user-img {
+        border-radius: 50%;
+        border: .45rem solid $grey;
+        width: 8rem;
+        height: 8rem;
+        background-image: url('../../../assets/img/user-img.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        .user-img-edit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $white;
+            padding: 1rem;
+            margin: 0;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            border: .45rem solid $background;
+            margin-left: -2rem;
+        }
+
+    }
+
+    .user-social {
+        color: $white;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+
+        margin-bottom: 1.5rem;
+
+        i {
+            transition: .3s ease-out;
+        }
+
+        i:hover{
+            cursor: pointer;
+            transform: scale(1.5);
+            color: $light-blue;
+            transition: .3s ease;
+        }
+    }
+
+}
+
+
+

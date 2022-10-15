@@ -1,0 +1,48 @@
+
+<h2 mat-dialog-title> {{formType}} an skill entry for {{data.stack}} </h2>
+
+<mat-dialog-content>
+    This will add a new education entry with the information provided below.
+
+    <form [formGroup]="newSkill">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Name" formControlName="name" required>
+        </mat-form-field>
+
+        <div class="icon-input">
+            <mat-form-field>
+                <input matInput #input (keyup)="showIcon(input.value)" type="text" placeholder="Icon" formControlName="icon" required>
+            </mat-form-field>
+            <i [class]="icon" class="fa-2xl"></i>
+        </div>
+
+
+        <!-- <mat-form-field>
+            <label for="skillrange" class="form-label"> Skill level </label>
+            <input matInput type="range" class="form-range" min="0" max="100" step="1" id="skillrange">
+        </mat-form-field> -->
+
+        <p> Level: {{slider.value}}</p>
+        <mat-slider
+            #slider
+            [value]="level"
+            thumbLabel
+            tickInterval="1000"
+            step="1"
+            min="0"
+            max="100"
+            aria-label="units"
+            (change)="changeLevel(slider.value)"
+            ></mat-slider>
+
+
+
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button class="cancel-button" (click)="cancelSave()"> Cancel <mat-icon> cancel </mat-icon> </button>
+    <button mat-button class="save-button" [disabled]="newSkill.invalid" (click)="saveSkill()"> Save <mat-icon> save </mat-icon> </button>
+</mat-dialog-actions>
+
