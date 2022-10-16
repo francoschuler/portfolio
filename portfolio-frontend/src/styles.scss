@@ -9,15 +9,16 @@ html {
 }
 html, body { 
     height: 100%;
+
 }
 
 body { 
     margin: 0;
 
+
 }
 
 p, h1, h2, h3, h4 {
-    color: v.$white;
     margin: 0;
 }
 
@@ -34,10 +35,25 @@ a:hover{
     cursor: pointer;
 }
 
+.custom-dialog > mat-dialog-container {
+    background-color: v.$background !important;
+    color: v.$white !important
+}
+
+::ng-deep .mat-input-element::placeholder{
+    color: red;
+}
+
 .section-title {
     font-family: v.$main;
     font-weight: v.$main-bold;
     font-size: 2rem;
+    color: v.$white;
+}
+
+.section-text {
+    color: v.$white;
+    font-family: v.$main;
 }
 
 .section-subtitle {
@@ -53,6 +69,23 @@ a:hover{
         padding: 2rem;
     }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: v.$background;
+  border-radius: 100px;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: v.$grey;
+  border-radius: 100px;
+  
+}
+
 
 
 

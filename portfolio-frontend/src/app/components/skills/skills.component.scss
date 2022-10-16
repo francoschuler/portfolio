@@ -1,18 +1,18 @@
-@import 'variables';
+@use 'variables' as v;
 
 
 
 
 .progress-bar-frontend {
-    background-color: $red;
+    background-color: v.$red;
 }
 
 .progress-bar-backend {
-    background-color: $darkgreen;
+    background-color: v.$darkgreen;
 }
 
 .progress-bar-others {
-    background-color: $light-blue;
+    background-color: v.$light-blue;
 }
 
 .skill {
@@ -31,6 +31,7 @@
 
     .skill-name {
         font-size: 1rem;
+        color: v.$white;
     }
 }
 
@@ -39,7 +40,7 @@ h3 {
 }
 
 i {
-    color: $white;
+    color: v.$white;
 
 }
 
@@ -48,35 +49,35 @@ i {
     display: flex;
     gap: .5rem;
     align-items: center;
-    color: $white;
+    color: v.$white;
     margin: 1.5rem 0;
 
     h2 { margin: 0; }
 
-    mat-icon { color: $green; }
+    mat-icon { color: v.$green; }
 
 }
 
 .edit-icon {
-    color: $yellow;
+    color: v.$yellow;
 }
 
 .delete-icon {
-    color: $red;
+    color: v.$red;
 }
 
 .alert-card {
-    background-color: $red;
+    background-color: v.$red;
     display: flex;
     align-items: center;
     gap: 1rem;
     border: none;
     border-radius: 10px;
-    color: $white;
+    color: v.$white;
 }
 
 .skill-name {
-    font-family: $secondary;
-    font-weight: $secondary-bold;
+    font-family: v.$secondary;
+    font-weight: v.$secondary-bold;
     font-size: 1.2rem;
 }

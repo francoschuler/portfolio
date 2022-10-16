@@ -78,7 +78,8 @@ export class AboutmeComponent implements OnInit {
   openNewEducationDialog(): void {
 
     const dialogRef = this.dialog.open(NewEducationComponent, {
-      width: '500px'
+      width: '500px',
+      panelClass: 'custom-dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {

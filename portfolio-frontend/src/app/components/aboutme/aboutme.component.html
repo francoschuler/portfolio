@@ -1,6 +1,6 @@
 <div class="container" id="aboutme">
     <h1 class="section-title"> About me </h1>
-    <p contenteditable="true" class="aboutme-text">
+    <p class="section-text">
         I love computing and the vast number of fields it
         encompasses. Therefore, I really want to learn new
         knowledge.
@@ -17,19 +17,35 @@
             <button mat-icon-button (click)="openNewEducationDialog()"><mat-icon>add_circle_outline</mat-icon></button>
         </div>
 
-        <div class="grid">
-            <mat-card class="col-12" *ngFor="let e of dataEducation">
-                <mat-card-title> 
-                    <p> {{e.title}} </p> 
-                    <mat-card-actions>
-                        <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
-                        <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
-                    </mat-card-actions></mat-card-title>
-                <mat-card-subtitle> {{e.subtitle}} </mat-card-subtitle> 
-                <mat-card-subtitle> {{e.period}} </mat-card-subtitle>
-                <mat-card-content> {{e.description}} </mat-card-content>
 
-            </mat-card>
+        <div *ngFor="let e of dataEducation">
+
+            <div class="custom-card">
+                <div class="col-12 custom-card-title">
+                    <h3> {{e.title}} </h3> 
+                </div>
+                <div class="col-12 custom-card-content">
+                    <p class="custom-card-subtitle"> {{e.subtitle}} </p> 
+                    <p class="custom-card-subtitle"> {{e.period}} </p>
+                    <p class="custom-card-description"> {{e.description}} </p>
+                </div>
+                <div class="col-12 custom-card-actions">
+                    <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                    <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                </div>
+            </div>
+
+            <!-- <mat-card-title> 
+                <p> {{e.title}} </p> 
+                <mat-card-actions>
+                    <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                    <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                </mat-card-actions>
+            </mat-card-title>
+            <mat-card-subtitle> {{e.subtitle}} </mat-card-subtitle> 
+            <mat-card-subtitle> {{e.period}} </mat-card-subtitle>
+            <mat-card-content> {{e.description}} </mat-card-content> -->
+
         </div>
 
         <mat-card class="alert-card" *ngIf="noDataEducation">
@@ -43,20 +59,22 @@
             <h2 class="section-subtitle">Employment History</h2>
             <button mat-icon-button (click)="openNewEmploymentDialog()"><mat-icon>add_circle_outline</mat-icon></button>
         </div>
-        <div class="grid">
-            <mat-card class="col-12"*ngFor="let e of dataEmployment">
-                <mat-card-title> 
-                    <p> {{e.title}} </p> 
-                    <mat-card-actions>
-                        <button mat-icon-button (click)="openEditEmploymentDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
-                        <button mat-icon-button (click)="openConfirmationEmployment(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
-                    </mat-card-actions></mat-card-title>
-                <mat-card-subtitle> {{e.subtitle}} </mat-card-subtitle> 
-                <mat-card-subtitle> {{e.period}} </mat-card-subtitle>
-                <mat-card-content> {{e.description}} </mat-card-content>
+        <div *ngFor="let e of dataEmployment">
 
-            </mat-card>
-        </div>
+            <div class="grid custom-card">
+                <div class="col-12 custom-card-title">
+                    <h3> {{e.title}} </h3> 
+                </div>
+                <div class="col-12 custom-card-content">
+                    <p class="custom-card-subtitle"> {{e.subtitle}} </p> 
+                    <p class="custom-card-subtitle"> {{e.period}} </p>
+                    <p class="custom-card-description"> {{e.description}} </p>
+                </div>
+                <div class="col-12 custom-card-actions">
+                    <button mat-icon-button (click)="openEditEmploymentDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                    <button mat-icon-button (click)="openConfirmationEmployment(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                </div>
+            </div>
         <mat-card class="alert-card" *ngIf="noDataEmployment">
             <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
             <mat-card-content> There is no employment entries available. </mat-card-content>

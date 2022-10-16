@@ -3,6 +3,13 @@
 .ham-menu {
     background-color: $background;
     color: $white;
+    padding: 1rem;
+    mat-icon {
+        color: $white;  
+        transform: scale(1.8);
+    }
+    display: flex;
+    justify-content: flex-end;
 }
 
 mat-sidenav-container {

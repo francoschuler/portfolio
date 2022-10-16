@@ -2,8 +2,9 @@
     <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
 </div>
 
+
 <mat-sidenav-container>
-    <mat-sidenav backdrop="true" #sidenav opened disableClose="true" [mode]="mobileQuery.matches ? 'over' : 'side'">
+    <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'">
         <div class="ham-menu" *ngIf="sidenav.opened && mobileQuery.matches">
             <button mat-icon-button (click)="sidenav.close()"> <mat-icon>cross</mat-icon> </button>
         </div>

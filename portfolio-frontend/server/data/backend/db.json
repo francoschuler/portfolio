@@ -20,20 +20,6 @@
       "period": "2022",
       "description": "Udemy course using technologies like Angular and Springboot",
       "id": 4
-    },
-    {
-      "title": "a",
-      "subtitle": "a",
-      "period": "a",
-      "description": "a",
-      "id": 5
-    },
-    {
-      "title": "a",
-      "subtitle": "a",
-      "period": "a",
-      "description": "a",
-      "id": 6
     }
   ],
   "employments": [
@@ -41,15 +27,15 @@
       "title": "Frontend Developer",
       "subtitle": "Alcorcon, Madrid",
       "period": "2020-2021",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est!",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est",
       "id": 1
     },
     {
-      "id": 2,
-      "title": "Extracurricular IT Teacher",
+      "title": "Extracurricular IT Teachera",
       "subtitle": "Alcorcon, Madrid",
       "period": "2020-2021",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est!"
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam lauda",
+      "id": 2
     },
     {
       "title": "a",
