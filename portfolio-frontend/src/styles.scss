@@ -35,15 +35,6 @@ a:hover{
     cursor: pointer;
 }
 
-.custom-dialog > mat-dialog-container {
-    background-color: v.$background !important;
-    color: v.$white !important
-}
-
-::ng-deep .mat-input-element::placeholder{
-    color: red;
-}
-
 .section-title {
     font-family: v.$main;
     font-weight: v.$main-bold;

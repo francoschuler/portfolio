@@ -4,9 +4,9 @@
 
 
 <mat-sidenav-container>
-    <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'">
+    <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'" [position]="mobileQuery.matches ? 'end' : 'start'">
         <div class="ham-menu" *ngIf="sidenav.opened && mobileQuery.matches">
-            <button mat-icon-button (click)="sidenav.close()"> <mat-icon>cross</mat-icon> </button>
+            <button mat-icon-button (click)="sidenav.close()"> <mat-icon>close</mat-icon> </button>
         </div>
         <div class="user">
             <div class="user-img">
@@ -22,7 +22,7 @@
                 </a>
                 
 
-                <a href="https://www.linkedin.com/in/franco-exequiel-schuler/">
+                <a href="https://github.com/francoschuler">
                     <i class="fa-brands fa-github fa-xl"></i>
                 </a>
             </div>
@@ -36,25 +36,6 @@
                         {{link.name}}
                     </a>
                 </li>
-            
-                <!-- <li>
-                    <a (click)="onClickScroll('projects')">
-                        <mat-icon>domain</mat-icon>
-                        Projects
-                    </a>
-                </li>
-                <li>
-                    <a (click)="onClickScroll('contact')">
-                        <mat-icon>mail_outline</mat-icon>
-                        Contact
-                    </a>
-                </li>
-                <li>    
-                    <a href="">
-                        <mat-icon>lock_open</mat-icon>
-                        Login
-                    </a>
-                </li> -->
             </ul>
         </mat-nav-list>
     </mat-sidenav>

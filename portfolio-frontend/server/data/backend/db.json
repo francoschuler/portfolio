@@ -36,20 +36,6 @@
       "period": "2020-2021",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam lauda",
       "id": 2
-    },
-    {
-      "title": "a",
-      "subtitle": "a",
-      "period": "a",
-      "description": "a",
-      "id": 3
-    },
-    {
-      "title": "A",
-      "subtitle": "a",
-      "period": "a",
-      "description": "a",
-      "id": 4
     }
   ],
   "skills": [
@@ -71,7 +57,7 @@
       "name": "Javascript",
       "icon": "fa-brands fa-js",
       "stack": "Frontend",
-      "level": 60,
+      "level": 80,
       "id": 8
     },
     {
