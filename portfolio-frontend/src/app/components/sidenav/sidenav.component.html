@@ -1,6 +1,6 @@
-<!-- <div class="ham-menu" *ngIf="!sidenav.opened && mobileQuery.matches">
+<div class="ham-menu" *ngIf="!sidenav.opened && mobileQuery.matches">
     <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
-</div> -->
+</div>
 
 <mat-sidenav-container>
     <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'" [position]="mobileQuery.matches ? 'end' : 'start'">
