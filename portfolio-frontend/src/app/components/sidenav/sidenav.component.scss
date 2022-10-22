@@ -6,10 +6,12 @@
     padding: 1rem;
     mat-icon {
         color: $white;  
-        transform: scale(2.5);
+        transform: scale(1.5);
     }
     display: flex;
     justify-content: flex-end;
+    
+    transition: all .75s ease;
 }
 
 mat-sidenav-container {
@@ -24,6 +26,7 @@ mat-sidenav-container {
         padding: 1.5rem;
         border: none;
         background-color: $background;
+        min-width: 16rem;
 
         mat-nav-list a {
             font-family: $secondary;
@@ -40,8 +43,8 @@ mat-sidenav-container {
 
 ul {
     line-height: 2rem;
-    padding-left: 3rem;
-
+    padding: 0 !important;
+    margin-left: 2rem;
     a {
         display: flex;
         align-items: center;

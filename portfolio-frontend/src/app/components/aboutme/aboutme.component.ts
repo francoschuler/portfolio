@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 import { EmploymentService } from 'src/app/services/employment.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
@@ -20,15 +21,18 @@ export class AboutmeComponent implements OnInit {
   noDataEducation: boolean = false;
   noDataEmployment: boolean = false;
   aboutmeText: any;
+  isLogged: boolean = false;
 
   constructor(private educationService: EducationService,
               private employmentService: EmploymentService,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getEducations();
     this.getEmployments();
+    this.isLogged = this.authService.isLogged();
   }
 
   /**
@@ -39,7 +43,7 @@ export class AboutmeComponent implements OnInit {
     .subscribe( ( data:any ) => {
       this.dataEducation = data;
       console.log(this.dataEducation[0].period);
-      this.noDataEducation = this.dataEducation.length == 0 ? true : false;
+      this.noDataEducation = this.dataEducation.length === 0 ? true : false;
 
     }, (error:any) => {
       this.noDataEducation = true;
@@ -54,24 +58,22 @@ export class AboutmeComponent implements OnInit {
      getEmployments() {
       this.employmentService.getEmployments()
       .subscribe( ( data:any ) => {
+        console.log('AQUI', data);
+        
         this.dataEmployment = data;
-        this.noDataEmployment = this.dataEmployment.length == 0 ? true : false;
+        this.noDataEmployment = this.dataEmployment.length === 0 ? true : false;
   
       }, (error:any) => {
         this.noDataEmployment = true;
+        
+        console.log('antes', this.noDataEmployment);
         console.log("ERROR trying to get employments.")
       });
+
+      console.log('despues', this.noDataEmployment);
+      
   
     }
-
-  // processResponse(data : any) {
-  //   console.log(data);
-  //   let listEducation = data.educations;
-  //   listEducation.forEach((elem: EducationElement) => {
-  //     this.dataEducation.push(elem);
-  //   });
-  // }
-
 
   // DIALOGS
 

@@ -14,7 +14,8 @@
     <div class="education">
         <div class="title">
             <h2 class="section-subtitle">Educational Background</h2>
-            <button mat-icon-button (click)="openNewEducationDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+            <button *ngIf="isLogged" mat-icon-button (click)="openNewEducationDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+            <div class="line"></div>
         </div>
 
 
@@ -29,7 +30,7 @@
                     <p class="custom-card-subtitle"> {{e.period}} </p>
                     <p class="custom-card-description"> {{e.description}} </p>
                 </div>
-                <div class="col-12 custom-card-actions">
+                <div *ngIf="isLogged" class="col-12 custom-card-actions">
                     <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
                     <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
                 </div>
@@ -57,7 +58,8 @@
     <div class="work">
         <div class="title">
             <h2 class="section-subtitle">Employment History</h2>
-            <button mat-icon-button (click)="openNewEmploymentDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+            <button *ngIf="isLogged" mat-icon-button (click)="openNewEmploymentDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+            <div class="line"></div>
         </div>
         <div *ngFor="let e of dataEmployment">
 
@@ -70,14 +72,15 @@
                     <p class="custom-card-subtitle"> {{e.period}} </p>
                     <p class="custom-card-description"> {{e.description}} </p>
                 </div>
-                <div class="col-12 custom-card-actions">
+                <div *ngIf="isLogged" class="col-12 custom-card-actions">
                     <button mat-icon-button (click)="openEditEmploymentDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
                     <button mat-icon-button (click)="openConfirmationEmployment(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
                 </div>
             </div>
+        </div>
         <mat-card class="alert-card" *ngIf="noDataEmployment">
             <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
-            <mat-card-content> There is no employment entries available. </mat-card-content>
+            <mat-card-content> There is no education entries available. </mat-card-content>
         </mat-card>
     </div>
 

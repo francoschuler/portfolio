@@ -31,7 +31,7 @@
       "id": 1
     },
     {
-      "title": "Extracurricular IT Teachera",
+      "title": "Extracurricular IT Teacher",
       "subtitle": "Alcorcon, Madrid",
       "period": "2020-2021",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam lauda",
@@ -108,6 +108,23 @@
       "stack": "Others",
       "level": 100,
       "id": 15
+    }
+  ],
+  "users_auth": [
+    {
+      "id": 1,
+      "email": "franschuler@gmail.com",
+      "password": "fran123"
+    },
+    {
+      "email": "a",
+      "password": "a",
+      "id": 2
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 3
     }
   ]
 }

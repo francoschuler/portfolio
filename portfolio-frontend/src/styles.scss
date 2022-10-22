@@ -55,26 +55,27 @@ a:hover{
 
 .container {
     padding: 6rem;
-
+    min-width: 100%;
+    margin: 0;
     @media only screen and (max-width: 850px) {
         padding: 2rem;
     }
+
+    background-color: v.$background2;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: v.$background;
-  border-radius: 100px;
-  
+    background-color: v.$background;
+    border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: v.$grey;
-  border-radius: 100px;
-  
+    background-color: v.$grey;
+    border-radius: 100px;
 }
 
 

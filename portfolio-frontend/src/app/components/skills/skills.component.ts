@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 import { NewSkillComponent } from './new-skill/new-skill.component';
@@ -17,13 +18,16 @@ export class SkillsComponent implements OnInit {
   dataBackend: SkillElement[] =  [];
   dataOthers: SkillElement[] =  [];
   noDataSkill: boolean = false;
+  isLogged: boolean = false;
 
   constructor(private skillsService: SkillsService,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getSkills();
+    this.isLogged = this.authService.isLogged();
   }
 
   /**
@@ -37,7 +41,7 @@ export class SkillsComponent implements OnInit {
       this.processSkillsResponse(this.dataSkill);
     }, (error:any) => {
       this.noDataSkill = true;
-      console.log("ERROR trying to get educations.")
+      console.log("ERROR trying to get skills.")
     });
 
   }

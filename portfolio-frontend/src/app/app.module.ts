@@ -15,6 +15,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { NewEmploymentComponent } from './components/aboutme/new-employment/new-employment.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { NewSkillComponent } from './components/skills/new-skill/new-skill.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewSkillComponent } from './components/skills/new-skill/new-skill.compo
     ConfirmationComponent,
     NewEmploymentComponent,
     SkillsComponent,
-    NewSkillComponent
+    NewSkillComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

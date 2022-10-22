@@ -6,7 +6,7 @@
         <div class="frontend col-12 md:col-12 lg:col-12 xl:col-4">
             <div class="title">
                 <h3 class="section-subtitle">Frontend</h3>
-                <button mat-icon-button (click)="openNewSkillDialog('Frontend')"><mat-icon>add_circle_outline</mat-icon></button>
+                <button *ngIf="isLogged" mat-icon-button (click)="openNewSkillDialog('Frontend')"><mat-icon>add_circle_outline</mat-icon></button>
             </div>
 
             <div class="skill" *ngFor="let feSkill of dataFrontend;">
@@ -18,7 +18,7 @@
                         <p class="skill-name"> {{feSkill.name}}</p>    
                     </div>
 
-                    <div class="skill-actions">
+                    <div *ngIf="isLogged" class="skill-actions">
                         <button mat-icon-button (click)="openEditSkillDialog(feSkill.id, feSkill.name, feSkill.icon, 'Frontend', feSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
                         <button mat-icon-button (click)="openConfirmationSkill(feSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
                     </div>
@@ -35,7 +35,7 @@
         <div class="backend col-12 md:col-12 lg:col-12 xl:col-4">
             <div class="title">
                 <h2 class="section-subtitle">Backend</h2>
-                <button mat-icon-button (click)="openNewSkillDialog('Backend')"><mat-icon>add_circle_outline</mat-icon></button>
+                <button *ngIf="isLogged" mat-icon-button (click)="openNewSkillDialog('Backend')"><mat-icon>add_circle_outline</mat-icon></button>
             </div>
             <div class="skill" *ngFor="let beSkill of dataBackend;">
 
@@ -46,7 +46,7 @@
                         <p class="skill-name"> {{beSkill.name}}</p>    
                     </div>
 
-                    <div class="skill-actions">
+                    <div *ngIf="isLogged" class="skill-actions">
                         <button mat-icon-button (click)="openEditSkillDialog(beSkill.id, beSkill.name, beSkill.icon, 'Backend', beSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
                         <button mat-icon-button (click)="openConfirmationSkill(beSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
                     </div>
@@ -62,7 +62,7 @@
         <div class="others col-12 md:col-12 lg:col-12 xl:col-4">
             <div class="title">
                 <h2 class="section-subtitle">Others</h2>
-                <button mat-icon-button (click)="openNewSkillDialog('Others')"><mat-icon>add_circle_outline</mat-icon></button>
+                <button *ngIf="isLogged" mat-icon-button (click)="openNewSkillDialog('Others')"><mat-icon>add_circle_outline</mat-icon></button>
             </div>
             <div class="skill" *ngFor="let oSkill of dataOthers;">
 
@@ -73,7 +73,7 @@
                         <p class="skill-name"> {{oSkill.name}}</p>    
                     </div>
 
-                    <div class="skill-actions">
+                    <div *ngIf="isLogged" class="skill-actions">
                         <button mat-icon-button (click)="openEditSkillDialog(oSkill.id, oSkill.name, oSkill.icon, 'Others', oSkill.level)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
                         <button mat-icon-button (click)="openConfirmationSkill(oSkill.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
                     </div>

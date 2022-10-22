@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,25 +18,39 @@ export class SidenavComponent implements OnInit {
     {name: 'Skills', route: 'skills', icon:'code'}
   ]
 
-  constructor(private media: MediaMatcher, private router: Router) { 
+  isLogin: boolean = false;
+
+  constructor(private media: MediaMatcher, public router: Router, public authService: AuthService) { 
     
     this.mobileQuery = this.media.matchMedia('(max-width: 850px)'); 
+    
   }
 
   ngOnInit(): void {
     this.mobileQuery.addEventListener('change', this.watchQuery);
+    
+    // this.isLogin = this.router.url === '/login' ? true : false;
   }
 
   onClickScroll( id:string ) {
 
     if (id) {
       document.querySelector('#' + id)?.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      console.log(this.router.url);
     }
   }
 
   watchQuery(){
     console.log('query change');
     
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  isLogged() {
+    return this.authService.isLogged();
   }
 
 

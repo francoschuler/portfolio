@@ -1,0 +1,42 @@
+@use 'variables' as v;
+.login-container {
+    color: v.$white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    .form {
+        border: 1px solid v.$grey;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 30rem;
+
+        & * {
+            margin-bottom: 1rem;
+        }
+
+        input {
+            background-color: v.$background;
+            color: v.$white;
+            border: 1px solid v.$white;
+            padding: .5rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        button {
+            max-width: 10rem;
+            padding: .3rem;
+            border: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    }
+}
