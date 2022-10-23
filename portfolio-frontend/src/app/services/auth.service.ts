@@ -10,9 +10,9 @@ import { User } from '../models/User';
 })
 export class AuthService {
 
-  private TOKEN_KEY: string = 'token';
+  // private TOKEN_KEY: string = 'token';
 
-  private logged: boolean = false;
+  public logged: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -21,20 +21,13 @@ export class AuthService {
   //   return this.http.post(`${environment.url}/users_auth`, user, { responseType: 'text' });
   // }
 
-  login(email: string, password: string) {
+  getUsers() {
     // this.loginUser(email, password).subscribe( (token) => {
     //   localStorage.setItem(this.TOKEN_KEY, token);
     //   this.router.navigateByUrl('/');
     // })
 
-    if (email === environment.email && password === environment.password) {
-      console.log('SII');
-      
-      this.logged = true;
-      this.router.navigateByUrl('/');
-    }
-
-    console.log('NO');
+    return this.http.get<User[]>(`${environment.url}/users_auth`);
 
   }
 

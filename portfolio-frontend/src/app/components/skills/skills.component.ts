@@ -54,13 +54,13 @@ export class SkillsComponent implements OnInit {
 
     data.forEach( (skill:SkillElement) => {
       if(skill.stack === 'Frontend') {
-        console.log("FRONTEND", skill.name, skill.id)
+        // console.log("FRONTEND", skill.name, skill.id)
         this.dataFrontend.push(skill);
       }else if(skill.stack === 'Backend') {
-        console.log("BACKEND", skill.name, skill.id)
+        // console.log("BACKEND", skill.name, skill.id)
         this.dataBackend.push(skill);
       }else if(skill.stack === 'Others') {
-        console.log("OTHERS", skill.name, skill.id)
+        // console.log("OTHERS", skill.name, skill.id)
         this.dataOthers.push(skill);
       }
     })

@@ -12,42 +12,33 @@
 
 
     <div class="education">
+
         <div class="title">
             <h2 class="section-subtitle">Educational Background</h2>
             <button *ngIf="isLogged" mat-icon-button (click)="openNewEducationDialog()"><mat-icon>add_circle_outline</mat-icon></button>
             <div class="line"></div>
         </div>
 
+        <div class="grid">
+            <div class="col-12 md:col-12 lg:col-6 xl:col-4" *ngFor="let e of dataEducation" >
 
-        <div *ngFor="let e of dataEducation">
-
-            <div class="custom-card">
-                <div class="col-12 custom-card-title">
-                    <h3> {{e.title}} </h3> 
-                </div>
-                <div class="col-12 custom-card-content">
-                    <p class="custom-card-subtitle"> {{e.subtitle}} </p> 
-                    <p class="custom-card-subtitle"> {{e.period}} </p>
-                    <p class="custom-card-description"> {{e.description}} </p>
-                </div>
-                <div *ngIf="isLogged" class="col-12 custom-card-actions">
-                    <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
-                    <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                <div class="custom-card">
+                    <div class="custom-card-title">
+                        <h3> {{e.title}} </h3> 
+                    </div>
+                    <div class="custom-card-content">
+                        <p class="custom-card-subtitle"> <i class="fa-solid fa-book"></i> {{e.subtitle}} </p> 
+                        <p class="custom-card-subtitle"> <i class="fa-solid fa-calendar-days"></i> {{e.period}} </p>
+                        <p class="custom-card-description"> {{e.description}} </p>
+                    </div>
+                    <div *ngIf="isLogged" class="custom-card-actions">
+                        <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                        <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                    </div>
                 </div>
             </div>
-
-            <!-- <mat-card-title> 
-                <p> {{e.title}} </p> 
-                <mat-card-actions>
-                    <button mat-icon-button (click)="openEditEducationDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
-                    <button mat-icon-button (click)="openConfirmationEducation(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
-                </mat-card-actions>
-            </mat-card-title>
-            <mat-card-subtitle> {{e.subtitle}} </mat-card-subtitle> 
-            <mat-card-subtitle> {{e.period}} </mat-card-subtitle>
-            <mat-card-content> {{e.description}} </mat-card-content> -->
-
         </div>
+        
 
         <mat-card class="alert-card" *ngIf="noDataEducation">
             <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
@@ -61,20 +52,21 @@
             <button *ngIf="isLogged" mat-icon-button (click)="openNewEmploymentDialog()"><mat-icon>add_circle_outline</mat-icon></button>
             <div class="line"></div>
         </div>
-        <div *ngFor="let e of dataEmployment">
-
-            <div class="grid custom-card">
-                <div class="col-12 custom-card-title">
-                    <h3> {{e.title}} </h3> 
-                </div>
-                <div class="col-12 custom-card-content">
-                    <p class="custom-card-subtitle"> {{e.subtitle}} </p> 
-                    <p class="custom-card-subtitle"> {{e.period}} </p>
-                    <p class="custom-card-description"> {{e.description}} </p>
-                </div>
-                <div *ngIf="isLogged" class="col-12 custom-card-actions">
-                    <button mat-icon-button (click)="openEditEmploymentDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
-                    <button mat-icon-button (click)="openConfirmationEmployment(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+        <div class="grid">
+            <div class="col-12 md:col-12 lg:col-6 xl:col-4" *ngFor="let e of dataEmployment" >
+                <div class="custom-card">
+                    <div class="custom-card-title">
+                        <h3> {{e.title}} </h3> 
+                    </div>
+                    <div class="custom-card-content">
+                        <p class="custom-card-subtitle"> <i class="fa-solid fa-map-pin"></i> {{e.subtitle}} </p> 
+                        <p class="custom-card-subtitle"> <i class="fa-solid fa-calendar-days"></i> {{e.period}} </p>
+                        <p class="custom-card-description"> {{e.description}} </p>
+                    </div>
+                    <div *ngIf="isLogged" class="custom-card-actions">
+                        <button mat-icon-button (click)="openEditEmploymentDialog(e.id, e.title, e.subtitle, e.period, e.description)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                        <button mat-icon-button (click)="openConfirmationEmployment(e.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
+                    </div>
                 </div>
             </div>
         </div>

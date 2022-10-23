@@ -1,56 +1,68 @@
-<div class="ham-menu" *ngIf="!sidenav.opened && mobileQuery.matches">
-    <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
-</div>
+
 
 <mat-sidenav-container>
     <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'" [position]="mobileQuery.matches ? 'end' : 'start'">
         <div class="ham-menu" *ngIf="sidenav.opened && mobileQuery.matches">
             <button mat-icon-button (click)="sidenav.close()"> <mat-icon>close</mat-icon> </button>
         </div>
-        <div class="user">
-            <div class="user-img">
-                <div class="user-img-edit">
-                    <button mat-icon-button> <mat-icon> edit </mat-icon> </button>
-                </div>
-            </div>
-            <!-- <h2 class="username">Franco Exequiel Schuler</h2> -->
 
+        <div class="flex">
+            <div>
+                <div class="user">
+                    <div class="user-img">
+                        <div class="user-img-edit">
+                            <button mat-icon-button> <mat-icon> edit </mat-icon> </button>
+                        </div>
+                    </div>
+                    <!-- <h2 class="username">Franco Exequiel Schuler</h2> -->
+                </div>
+                
+                <mat-nav-list>
+                    <ul>
+                        <li *ngFor="let link of links">
+                            <a (click)="onClickScroll(link.route)">
+                                <mat-icon>{{link.icon}}</mat-icon>
+                                {{link.name}}
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a *ngIf="!isLogged()" routerLink="login">
+                                <mat-icon> lock_open </mat-icon>
+                                Login
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a id="logout" *ngIf="isLogged()" (click)="logout()">
+                                <mat-icon> lock </mat-icon>
+                                Logout
+                            </a>
+                        </li>
+        
+                    </ul>
+        
+        
+                </mat-nav-list>
+            </div>
+    
             <div class="user-social">
                 <a href="https://www.linkedin.com/in/franco-exequiel-schuler/">
                     <i class="fa-brands fa-linkedin fa-xl"></i>
                 </a>
                 
-
                 <a href="https://github.com/francoschuler">
                     <i class="fa-brands fa-github fa-xl"></i>
                 </a>
             </div>
         </div>
         
-        <mat-nav-list>
-            <ul>
-                <li *ngFor="let link of links">
-                    <a (click)="onClickScroll(link.route)">
-                        <mat-icon>{{link.icon}}</mat-icon>
-                        {{link.name}}
-                    </a>
-                </li>
-
-                
-                <a *ngIf="!isLogged()" routerLink="login">
-                    <mat-icon> lock_open </mat-icon>
-                    Login
-                </a>
-
-                <a *ngIf="isLogged()" (click)="logout()">
-                    <mat-icon> lock </mat-icon>
-                    Logout
-                </a>
-            </ul>
-        </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
+        <div class="ham-menu fixed" *ngIf="!sidenav.opened && mobileQuery.matches">
+            <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
+        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 

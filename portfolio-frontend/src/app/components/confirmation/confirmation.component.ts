@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 import { EmploymentService } from 'src/app/services/employment.service';
 import { SkillsService } from 'src/app/services/skills.service';
@@ -17,7 +18,8 @@ export class ConfirmationComponent implements OnInit {
               @Inject (MAT_DIALOG_DATA) public data: any,
               private educationService: EducationService,
               private employmentService: EmploymentService,
-              private skillsService: SkillsService) {
+              private skillsService: SkillsService,
+              private authService: AuthService) {
 
               this.confirmationType = this.data.type;
   }
@@ -51,7 +53,13 @@ export class ConfirmationComponent implements OnInit {
       this.dialogRef.close(2);
     })
   }
-  cancelDelete() {
+
+  logout() {
+    this.authService.logout();
+    this.dialogRef.close(1);
+  }
+
+  cancel() {
     this.dialogRef.close(3);
   }
 

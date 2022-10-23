@@ -55,7 +55,7 @@ export class AboutmeComponent implements OnInit {
     /**
    * Gets all employment entries
    */
-     getEmployments() {
+    getEmployments() {
       this.employmentService.getEmployments()
       .subscribe( ( data:any ) => {
         console.log('AQUI', data);

@@ -8,7 +8,7 @@
       "id": 2
     },
     {
-      "title": "Fullstack Developer Course",
+      "title": "Fullstack Developer'",
       "subtitle": "Udemy course including technologies like Angular and Springboot",
       "period": "2022",
       "description": "Prueba",
@@ -27,15 +27,22 @@
       "title": "Frontend Developer",
       "subtitle": "Alcorcon, Madrid",
       "period": "2020-2021",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam laudantium beatae corporis consequuntur voluptatem cum praesentium architecto facere, dolore animi esse voluptates est",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam ",
       "id": 1
     },
     {
       "title": "Extracurricular IT Teacher",
       "subtitle": "Alcorcon, Madrid",
       "period": "2020-2021",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi quasi dolorem a pariatur in ipsa numquam lauda",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
       "id": 2
+    },
+    {
+      "title": "a",
+      "subtitle": "a",
+      "period": "a",
+      "description": "a",
+      "id": 3
     }
   ],
   "skills": [
@@ -108,23 +115,19 @@
       "stack": "Others",
       "level": 100,
       "id": 15
+    },
+    {
+      "name": "Node JS",
+      "icon": "fa-brands fa-node",
+      "stack": "Backend",
+      "level": 74,
+      "id": 16
     }
   ],
   "users_auth": [
     {
-      "id": 1,
-      "email": "franschuler@gmail.com",
+      "email": "franschuler13@gmail.com",
       "password": "fran123"
-    },
-    {
-      "email": "a",
-      "password": "a",
-      "id": 2
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 3
     }
   ]
 }

@@ -4,6 +4,7 @@
     background-color: $background;
     color: $white;
     padding: 1rem;
+    width: 100%;
     mat-icon {
         color: $white;  
         transform: scale(1.5);
@@ -13,6 +14,21 @@
     
     transition: all .75s ease;
 }
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+
+// .fixed {
+//     width: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     // position: absolute;
+// }
 
 mat-sidenav-container {
     height: 100%;
@@ -27,6 +43,10 @@ mat-sidenav-container {
         border: none;
         background-color: $background;
         min-width: 16rem;
+
+        mat-nav-list {
+            margin-top: 2rem;
+        }
 
         mat-nav-list a {
             font-family: $secondary;
@@ -109,26 +129,28 @@ ul {
 
     }
 
-    .user-social {
-        color: $white;
-        display: flex;
-        align-items: center;
-        gap: 4rem;
+    
 
-        margin-bottom: 1.5rem;
+}
 
-        i {
-            transition: .3s ease-out;
-        }
+.user-social {
+    color: $white;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 
-        i:hover{
-            cursor: pointer;
-            transform: scale(1.5);
-            color: $light-blue;
-            transition: .3s ease;
-        }
+    i {
+        transition: .3s ease-out;
     }
 
+    i:hover{
+        cursor: pointer;
+        transform: scale(1.5);
+        color: $light-blue;
+        transition: .3s ease;
+    }
 }
 
 
