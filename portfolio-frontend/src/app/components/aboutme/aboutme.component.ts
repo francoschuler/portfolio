@@ -22,6 +22,7 @@ export class AboutmeComponent implements OnInit {
   noDataEmployment: boolean = false;
   aboutmeText: any;
   isLogged: boolean = false;
+  loading: boolean = false;
 
   constructor(private educationService: EducationService,
               private employmentService: EmploymentService,
@@ -39,11 +40,13 @@ export class AboutmeComponent implements OnInit {
    * Gets all education entries
    */
   getEducations() {
+    this.loading = true;
     this.educationService.getEducations()
-    .subscribe( ( data:any ) => {
+    .subscribe( async ( data:any ) => {
       this.dataEducation = data;
       console.log(this.dataEducation[0].period);
       this.noDataEducation = this.dataEducation.length === 0 ? true : false;
+      this.loading = false;
 
     }, (error:any) => {
       this.noDataEducation = true;

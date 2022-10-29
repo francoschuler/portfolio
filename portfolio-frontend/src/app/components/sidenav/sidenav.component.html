@@ -1,9 +1,9 @@
 
 
 <mat-sidenav-container>
-    <mat-sidenav backdrop="true" #sidenav opened  [mode]="mobileQuery.matches ? 'over' : 'side'" [position]="mobileQuery.matches ? 'end' : 'start'">
+    <mat-sidenav *ngIf="!isLogin" backdrop="true" #sidenav [opened]="isShowing"  [mode]="mobileQuery.matches ? 'over' : 'side'" [position]="mobileQuery.matches ? 'end' : 'start'">
         <div class="ham-menu" *ngIf="sidenav.opened && mobileQuery.matches">
-            <button mat-icon-button (click)="sidenav.close()"> <mat-icon>close</mat-icon> </button>
+            <button mat-icon-button (click)="toggleSidenav()"> <mat-icon>close</mat-icon> </button>
         </div>
 
         <div class="flex">
@@ -60,8 +60,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <div class="ham-menu fixed" *ngIf="!sidenav.opened && mobileQuery.matches">
-            <button mat-icon-button (click)="sidenav.open()"> <mat-icon>menu</mat-icon> </button>
+        <div class="ham-menu fixed" *ngIf="!isShowing&& mobileQuery.matches">
+            <button mat-icon-button (click)="toggleSidenav()"> <mat-icon>menu</mat-icon> </button>
         </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

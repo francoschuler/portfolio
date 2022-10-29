@@ -1,8 +1,9 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
@@ -18,10 +19,12 @@ export class SidenavComponent implements OnInit {
   links = [
     {name: 'Home', route: 'home', icon:'home'},
     {name: 'About me', route: 'aboutme', icon:'person_outline'},
-    {name: 'Skills', route: 'skills', icon:'code'}
+    {name: 'Skills', route: 'skills', icon:'code'},
+    {name: 'Projects', route: 'projects', icon:'domain'}
   ]
 
   isLogin: boolean = false;
+  isShowing: boolean = true;
 
   constructor(private media: MediaMatcher,
               public router: Router,
@@ -36,13 +39,27 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     this.mobileQuery.addEventListener('change', this.watchQuery);
 
-    // this.isLogin = this.router.url === '/login' ? true : false;
+    
+    this.router.events.subscribe((routerData) => {
+      if(routerData instanceof NavigationEnd){ 
+        this.isLogin = this.router.url === '/login';
+        
+      } 
+    });
+    
   }
+
+  
+
+toggleSidenav() {
+    this.isShowing = !this.isShowing;
+}
 
   onClickScroll( id:string ) {
 
     if (id) {
       document.querySelector('#' + id)?.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      window.history.replaceState({}, '',`/${id}`);
       console.log(this.router.url);
     }
   }

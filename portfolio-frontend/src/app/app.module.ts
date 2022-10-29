@@ -17,6 +17,8 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { NewSkillComponent } from './components/skills/new-skill/new-skill.component';
 import { LoginComponent } from './components/login/login.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProjectsComponent } from './components/projects/projects.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { InputTextModule } from 'primeng/inputtext';
     NewEmploymentComponent,
     SkillsComponent,
     NewSkillComponent,
-    LoginComponent
+    LoginComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { InputTextModule } from 'primeng/inputtext';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

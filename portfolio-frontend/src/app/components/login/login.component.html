@@ -1,6 +1,17 @@
 <div class="login-container">
     <form class="form" [formGroup]="loginForm">
         <h3 class="title"> Login </h3>
+
+        <div class="alert-card" *ngIf="!emailOk">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Incorrect email
+        </div>
+
+        <div class="alert-card" *ngIf="!passwordOk">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Incorrect password
+        </div>
+
         <div class="email">
             <i class="fa-solid fa-user fa-xl"></i>
             <input type="email" formControlName="email" name="email" placeholder="Email" required autocomplete="off">
@@ -9,12 +20,12 @@
         <div class="password">
             <i class="fa-solid fa-key fa-xl"></i>
             <input type="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Password" required autocomplete="off">
-            <!-- <button mat-icon-button (click)="hidePassword = !hidePassword">
-                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button> -->
+            <button class="hidePw" mat-icon-button (click)="hidePassword = !hidePassword">
+                <mat-icon> {{hidePassword ? 'visibility_off' : 'visibility'}} </mat-icon>
+            </button>
         </div>
 
-        <button type="submit" (click)="login()"> Access </button>
-        <button routerLink="home"> Go back to home </button>
+        <button class="submit" type="submit" (click)="login()"> Access </button>
+        <button class="submit" routerLink="home"> Go back to home page</button>
     </form>
 </div>

@@ -37,9 +37,6 @@
         border-radius: 10px;
         background-color: v.$background2;
 
-        & * {
-            margin-bottom: 1rem;
-        }
 
         input {
             background-color: v.$background;
@@ -61,27 +58,47 @@
 
     }
 
-    
-    button {
-        width: 100%;
-        padding: .3rem;
-        border: none;
-        font-weight: bold;
-        font-size: 1.2rem;
-        border-radius: 5px;
-        background-color: v.$grey;
-        transition: .3s ease-out;
-    }
+}
 
-    button:hover {
-        background-color: v.$white;
-        transition: .3s ease-in;
-    }
+mat-icon{
+    margin: 0 !important;
+    object-fit: cover;
+}
+
+.submit {
+    width: 100%;
+    padding: .3rem;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: v.$grey;
+    transition: .3s ease-out;
+    margin-bottom: 1rem;
+}
+
+.submit:hover {
+    background-color: v.$white;
+    transition: .3s ease-in;
 }
 
 .email, .password {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
     width: 100%;
+}
+
+.alert-card {
+    color: v.$white;
+    background-color: v.$red;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: .5rem;
+    margin-bottom: 1rem;
 }
