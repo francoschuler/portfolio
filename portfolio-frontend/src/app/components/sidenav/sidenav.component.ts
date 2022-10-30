@@ -20,7 +20,8 @@ export class SidenavComponent implements OnInit {
     {name: 'Home', route: 'home', icon:'home'},
     {name: 'About me', route: 'aboutme', icon:'person_outline'},
     {name: 'Skills', route: 'skills', icon:'code'},
-    {name: 'Projects', route: 'projects', icon:'domain'}
+    {name: 'Projects', route: 'projects', icon:'domain'},
+    {name: 'Contact me', route: 'contactme', icon:'alternate_email'},
   ]
 
   isLogin: boolean = false;
@@ -48,8 +49,6 @@ export class SidenavComponent implements OnInit {
     });
     
   }
-
-  
 
 toggleSidenav() {
     this.isShowing = !this.isShowing;

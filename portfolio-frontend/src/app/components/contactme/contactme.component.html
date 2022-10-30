@@ -1,0 +1,24 @@
+
+<div class="container" id="contactme">
+    <div class="contact">
+        <h2> Contact me! </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio commodi unde a alias necessitatibus impedit, harum iure error doloremque blanditiis ut eveniet velit reiciendis dolorum! Earum eius fugiat incidunt tempora.</p>
+        <form class="form" [formGroup]="contactForm">
+
+            <div class="email">
+                <input type="text" formControlName="name" name="name" placeholder="Name" required autocomplete="off">
+            </div>
+    
+            <div class="email">
+                <input type="email" formControlName="email" name="email" placeholder="Email" required autocomplete="off">
+            </div>
+    
+            <div class="password">
+                <textarea formControlName="message" name="message" placeholder="Message" required autocomplete="off" rows="10" ></textarea>
+            </div>
+    
+            <!-- <button class="submit" type="submit"> Access </button>
+            <button class="submit" routerLink="home"> Go back to home page</button> -->
+        </form>
+    </div>
+</div>

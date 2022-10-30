@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProjectsComponent } from './components/projects/projects.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ContactmeComponent } from './components/contactme/contactme.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     SkillsComponent,
     NewSkillComponent,
     LoginComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ContactmeComponent
   ],
   imports: [
     BrowserModule,
