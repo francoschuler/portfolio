@@ -1,0 +1,15 @@
+@use 'variables' as v;
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-button {
+    color: v.$background;
+}
+
+.cancel-button {
+    color: v.$red;
+}

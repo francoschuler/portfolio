@@ -17,6 +17,11 @@
   <button mat-button (click)="deleteSkill()"> Yes </button>
 </mat-dialog-actions>
 
+<mat-dialog-actions *ngIf="confirmationType === 'project'">
+  <button mat-button (click)="cancel()"> No, go back </button>
+  <button mat-button (click)="deleteProject()"> Yes </button>
+</mat-dialog-actions>
+
 <mat-dialog-actions *ngIf="confirmationType === 'logout'">
   <button mat-button (click)="cancel()"> No, go back </button>
   <button mat-button (click)="logout()"> Yes </button>

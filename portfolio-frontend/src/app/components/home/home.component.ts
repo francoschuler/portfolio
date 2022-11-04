@@ -15,11 +15,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   onClickScroll( id:string ) {
-    console.log(id);
-    // document.querySelector('#' + id)?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-    this.viewportScroller.scrollToAnchor(id);
-    // this.router.navigate([], { fragment: id });
+
+    if (id) {
+      document.querySelector('#' + id)?.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      window.history.replaceState({}, '',`/${id}`);
+      console.log(this.router.url);
+    }
   }
 
 }

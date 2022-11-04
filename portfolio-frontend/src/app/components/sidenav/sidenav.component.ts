@@ -50,9 +50,9 @@ export class SidenavComponent implements OnInit {
     
   }
 
-toggleSidenav() {
-    this.isShowing = !this.isShowing;
-}
+  toggleSidenav() {
+      this.isShowing = !this.isShowing;
+  }
 
   onClickScroll( id:string ) {
 

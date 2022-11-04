@@ -68,14 +68,9 @@ export class AboutmeComponent implements OnInit {
   
       }, (error:any) => {
         this.noDataEmployment = true;
-        
-        console.log('antes', this.noDataEmployment);
         console.log("ERROR trying to get employments.")
       });
 
-      console.log('despues', this.noDataEmployment);
-      
-  
     }
 
   // DIALOGS

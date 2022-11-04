@@ -125,9 +125,53 @@
     }
   ],
   "projects": [
-      {
-
-      }
+    {
+      "id": 1,
+      "title": "Proyecto Portfolio",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      "skills": [
+        "Angular",
+        "Frontend",
+        "Web Development"
+      ],
+      "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
+      "urlRepo": "https://github.com/francoschuler/portfolio",
+      "urlDemo": "https://francoschuler.github.io/portfolio/"
+    },
+    {
+      "id": 2,
+      "title": "Proyecto Portfolio",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      "skills": [
+        "Angular",
+        "Frontend",
+        "Web Development"
+      ],
+      "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
+      "urlRepo": "https://github.com/francoschuler/portfolio",
+      "urlDemo": "https://francoschuler.github.io/portfolio/"
+    },
+    {
+      "id": 3,
+      "title": "Proyecto Portfolio",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      "skills": [
+        "Angular",
+        "Frontend",
+        "Web Development"
+      ],
+      "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
+      "urlRepo": "https://github.com/francoschuler/portfolio",
+      "urlDemo": "https://francoschuler.github.io/portfolio/"
+    },
+    {
+      "title": "a",
+      "description": "a",
+      "urlImg": "a",
+      "urlDemo": "a",
+      "urlRepo": "a",
+      "id": 4
+    }
   ],
   "users_auth": [
     {

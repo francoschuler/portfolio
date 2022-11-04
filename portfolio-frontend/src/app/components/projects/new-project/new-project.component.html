@@ -1,0 +1,42 @@
+
+<h2 mat-dialog-title> {{formType}} an education entry </h2>
+
+<mat-dialog-content>
+    This will add a new education entry with the information provided below.
+
+    <form [formGroup]="newProject">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Title" formControlName="title" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput type="text" placeholder="Description" formControlName="description" rows="6" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Skills" formControlName="skills" required>
+        </mat-form-field>
+
+        
+        <mat-form-field>
+            <input matInput type="text" placeholder="Image URL" formControlName="urlImg" required>
+        </mat-form-field>
+
+        
+        <mat-form-field>
+            <input matInput type="text" placeholder="Live Demo URL" formControlName="urlDemo" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Repository URL" formControlName="urlRepo" required>
+        </mat-form-field>
+
+
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button class="cancel-button" (click)="cancelSave()"> Cancel <mat-icon> cancel </mat-icon> </button>
+    <button mat-button class="save-button" [disabled]="newProject.invalid" (click)="saveProject()"> Save <mat-icon> save </mat-icon> </button>
+</mat-dialog-actions>

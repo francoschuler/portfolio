@@ -1,66 +1,28 @@
 <div class="container" id="projects">
-    <h1 class="section-title"> Projects </h1>
+    <div class="section-title">
+        <h2> Projects </h2>
+        <button mat-icon-button (click)="openNewProjectDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+    </div>
     <p class="section-text">
         My projects
     </p>
 
     <div class="projects grid">
-        <div class="project col-12 md:col-12 lg:col-6 xl:col-6">
+        <div class="project col-12 md:col-12 lg:col-6 xl:col-6" *ngFor="let project of dataProjects">
             <div class="project-img">
-                <h2> Projecto </h2>
-                <img src="../../../assets/img/overlay.jpg" alt="">
+                <h2> {{ project.title }} </h2>
+                <img [src]="project.urlImg" alt="">
             </div>
             <div class="project-info">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae blanditiis ea aliquam animi sed dolore quod autem velit suscipit quasi corrupti, error cum numquam temporibus ipsum nam obcaecati, praesentium quam?</p>
+                <p>{{ project.description }}</p>
                 <div class="actions">
-                    <button class="green-btn"> Live demo </button>
-                    <button class="red-btn"> Repository </button>
+                    <a [href]="project.urlDemo"><button class="red-btn"> Live demo </button></a>
+                    <a [href]="project.urlRepo"><button class="blue-btn"> Repository </button></a>
                 </div>
             </div>
-
-        </div>
-        <div class="project col-12 md:col-12 lg:col-6 xl:col-6">
-            <div class="project-img">
-                <h2> Projecto </h2>
-                <img src="../../../assets/img/overlay.jpg" alt="">
-            </div>
-            
-            <div class="project-info">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae blanditiis ea aliquam animi sed dolore quod autem velit suscipit quasi corrupti, error cum numquam temporibus ipsum nam obcaecati, praesentium quam?</p>
-                <div class="actions">
-                    <button class="green-btn"> Live demo </button>
-                    <button class="red-btn"> Repository </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="project col-12 md:col-12 lg:col-6 xl:col-6">
-            <div class="project-img">
-                <h2> Projecto </h2>
-                <img src="../../../assets/img/overlay.jpg" alt="">
-            </div>
-
-            <div class="project-info">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae blanditiis ea aliquam animi sed dolore quod autem velit suscipit quasi corrupti, error cum numquam temporibus ipsum nam obcaecati, praesentium quam?</p>
-                <div class="actions">
-                    <button class="green-btn"> Live demo </button>
-                    <button class="red-btn"> Repository </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="project col-12 md:col-12 lg:col-6 xl:col-6">
-            <div class="project-img">
-                <h2> Projecto </h2>
-                <img src="../../../assets/img/overlay.jpg" alt="">
-            </div>
-            
-            <div class="project-info">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae blanditiis ea aliquam animi sed dolore quod autem velit suscipit quasi corrupti, error cum numquam temporibus ipsum nam obcaecati, praesentium quam?</p>
-                <div class="actions">
-                    <button class="green-btn"> Live demo </button>
-                    <button class="red-btn"> Repository </button>
-                </div>
+            <div *ngIf="isLogged" class="project-actions">
+                <button mat-icon-button (click)="openEditProjectDialog(project.id, project.title, project.description, project.skills, project.urlImg, project.urlDemo, project.urlRepo)"> <mat-icon class="edit-icon"> edit </mat-icon> </button>
+                <button mat-icon-button (click)="openConfirmationProject(project.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
             </div>
         </div>
     </div>

@@ -1,41 +1,67 @@
 @use 'variables' as v;
 
+.title {
+
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-direction: row-reverse;
+    color: v.$white;
+    margin: 2rem 0;
+
+    h2 { margin: 0; }
+
+    mat-icon { color: v.$green; }
+
+}
+
 .projects {
     color: v.$white;
 
     .project {
-        padding: 1rem;
+        padding: 3rem;
         transition: all .3s ease-in-out;
         &:hover {
-            transform: scale(.95);
+            transform: scale(.97);
             transition: all .3s ease-in-out;
         }
 
         .project-img {
             position: relative;
+            // border: 2px solid v.$white;
             // padding: 3rem;
             img {
-            max-width: 100%;
-            border-radius: 15px;
-                
-            // padding: .5rem;
-            object-fit: cover;
+                max-width: 100%;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                    
+                // padding: .5rem;
+                object-fit: cover;
             }
-            
     
             h2 {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-    
+                display: none;
+                transition: 1s ease-in;
+            }
+
+            &:hover {
+                h2 {
+                    display: block;
+                    transition: 1s ease-out;
+                }
             }
             
         }
 
         .project-info {
             padding: 1.5rem;
-
+            background-color: v.$background2;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
             .actions {
                 display: flex;
                 flex-direction: column;
@@ -47,8 +73,11 @@
                     margin: .5rem 0;
                     padding: .5rem;
                     border-radius: 5px;
-                    background-color: v.$background;
+                    background-color: v.$background2;
+                }
 
+                a {
+                    width: 100%;
                 }
             }
         }
@@ -58,12 +87,34 @@
 
 }
 
-.green-btn {
+.blue-btn {
     color: v.$light-blue;
-    border: 1px solid v.$light-blue
+    border: 1px solid v.$light-blue;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: v.$light-blue !important;
+        color: v.$white;
+        transition: all .3s ease;
+    }
 }
 
 .red-btn {
-    color: v.$grey;
-    border: 1px solid v.$grey
+    color: v.$light-red;
+    border: 1px solid v.$light-red;
+    transition: background-color .3s ease;
+
+    &:hover {
+        background-color: v.$light-red !important;
+        color: v.$white;
+        transition: background-color .3s ease;
+    }
+}
+
+.edit-icon {
+    color: v.$yellow;
+}
+
+.delete-icon {
+    color: v.$red;
 }

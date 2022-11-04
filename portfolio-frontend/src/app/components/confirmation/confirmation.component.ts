@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 import { EmploymentService } from 'src/app/services/employment.service';
+import { ProjectService } from 'src/app/services/project.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class ConfirmationComponent implements OnInit {
               private educationService: EducationService,
               private employmentService: EmploymentService,
               private skillsService: SkillsService,
+              private projectService: ProjectService,
               private authService: AuthService) {
 
               this.confirmationType = this.data.type;
@@ -47,6 +49,15 @@ export class ConfirmationComponent implements OnInit {
 
   deleteSkill() {
     this.skillsService.deleteSkill(this.data.id)
+    .subscribe( (data:any) => {
+      this.dialogRef.close(1);
+    }, (error:any) => {
+      this.dialogRef.close(2);
+    })
+  }
+
+  deleteProject() {
+    this.projectService.deleteProject(this.data.id)
     .subscribe( (data:any) => {
       this.dialogRef.close(1);
     }, (error:any) => {
