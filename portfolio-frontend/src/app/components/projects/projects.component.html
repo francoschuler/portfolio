@@ -1,14 +1,14 @@
 <div class="container" id="projects">
-    <div class="section-title">
+    <div class="title">
         <h2> Projects </h2>
-        <button mat-icon-button (click)="openNewProjectDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+        <button *nfIf="logged" mat-icon-button (click)="openNewProjectDialog()"><mat-icon>add_circle_outline</mat-icon></button>
     </div>
-    <p class="section-text">
+    <p class="section-text" *ngIf="!noDataProject">
         My projects
     </p>
 
-    <div class="projects grid">
-        <div class="project col-12 md:col-12 lg:col-6 xl:col-6" *ngFor="let project of dataProjects">
+    <div class="projects">
+        <div class="project" *ngFor="let project of dataProjects">
             <div class="project-img">
                 <h2> {{ project.title }} </h2>
                 <img [src]="project.urlImg" alt="">
@@ -18,10 +18,9 @@
 
                 <div class="project-skills grid">
                     <div 
-                        class="skill col-6 md:col-3 lg:col-3 xl:col-3" 
+                        class="skill col-3" 
                         *ngFor="let skill of project.skills.split(',')"
-                        [matTooltip]="skill"
-                    > 
+                        [matTooltip]="skill"> 
                         {{ skill }} 
                     </div>
                 </div>
@@ -36,10 +35,9 @@
                 <button mat-icon-button (click)="openConfirmationProject(project.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
             </div>
         </div>
-
-        <mat-card class="alert-card" *ngIf="noDataProject">
-            <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
-            <mat-card-content> There is no projects available. </mat-card-content>
-        </mat-card>
     </div>
+    <mat-card class="alert-card" *ngIf="noDataProject">
+        <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
+        <mat-card-content> There is no projects available. </mat-card-content>
+    </mat-card>
 </div>

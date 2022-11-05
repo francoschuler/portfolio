@@ -1,11 +1,13 @@
 @use 'variables' as v;
 
-.section-title {
+.title {
+
 
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: center;
     color: v.$white;
+    margin: 1.5rem 0;
 
     h2 { margin: 0; }
 
@@ -15,6 +17,15 @@
 
 .projects {
     color: v.$white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    align-items: end;
+
+    @media screen and (max-width: 850px) {
+        grid-template-columns: 1fr;
+    }
+
     .project {
         padding: 1rem;
         // @media screen and (max-width: 1200px) {
@@ -152,4 +163,14 @@
 
 .delete-icon {
     color: v.$red;
+}
+
+.alert-card {
+    color: v.$white;
+    background-color: v.$red;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    border-radius: 10px;
 }
