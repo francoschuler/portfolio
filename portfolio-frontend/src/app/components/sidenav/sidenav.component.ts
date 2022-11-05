@@ -5,6 +5,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
@@ -58,7 +59,11 @@ export class SidenavComponent implements OnInit {
 
     if (id) {
       document.querySelector('#' + id)?.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      window.history.replaceState({}, '',`/${id}`);
+      if(environment.production) {
+        window.history.replaceState({}, '',`portfolio/${id}`);
+      }else {
+        window.history.replaceState({}, '',`/${id}`);
+      }
       console.log(this.router.url);
     }
   }

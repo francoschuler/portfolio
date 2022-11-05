@@ -1,7 +1,7 @@
 <div class="container" id="projects">
     <div class="title">
         <h2> Projects </h2>
-        <button *nfIf="logged" mat-icon-button (click)="openNewProjectDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+        <button *ngIf="isLogged" mat-icon-button (click)="openNewProjectDialog()"><mat-icon>add_circle_outline</mat-icon></button>
     </div>
     <p class="section-text" *ngIf="!noDataProject">
         My projects

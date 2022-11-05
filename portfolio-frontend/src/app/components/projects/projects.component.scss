@@ -58,9 +58,10 @@
             position: relative;
             // border: 2px solid v.$white;
             // padding: 3rem;
-            .project-img::before {
+            .project-img {
                 
                 transition: all .3s ease-in-out;
+                
             }
             img {
                 max-width: 100%;

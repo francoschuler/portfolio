@@ -1,6 +1,8 @@
 @use "variables" as v;
 
 @import "primeflex/primeflex.css";
+@import "primeng/resources/themes/bootstrap4-light-blue/theme.css";
+
 html {
     box-sizing: border-box;
     }
@@ -80,7 +82,7 @@ a:hover{
 
 input {
     color-scheme: dark;
-  }
+}
 
 
 
