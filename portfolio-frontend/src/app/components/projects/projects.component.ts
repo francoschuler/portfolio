@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -29,7 +30,6 @@ export class ProjectsComponent implements OnInit {
     this.isLogged = this.authService.isLogged();
   }
 
-
       /**
    * Gets all employment entries
    */
@@ -57,20 +57,21 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result:any) => {
       if (result == 1) {
-        this.openSnackBar("New education added correctly.", "Ok");
+        this.openSnackBar("New project added correctly.", "Ok");
       }else if (result == 2) {
-        this.openSnackBar("Error. New education cannot be added.", "Ok");
+        this.openSnackBar("Error. New project cannot be added.", "Ok");
       }
     });
   }
 
-  openEditProjectDialog(id:number, title: string, description: string, skills: string[], urlImg: string, urlDemo: string, urlRepo: string): void {
-    console.log("aboutme", id);
+  openEditProjectDialog(id:number, title: string, description: string, skills: string, urlImg: string, urlDemo: string, urlRepo: string): void {
     const dialogRef = this.dialog.open(NewProjectComponent, {
       width: '500px',
       data: {
+        id: id,
         title: title,
         description: description,
+        skills: skills,
         urlImg: urlImg,
         urlDemo: urlDemo,
         urlRepo: urlRepo,
@@ -79,10 +80,10 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("Education entry updated correctly.", "Ok");
+        this.openSnackBar("Project updated correctly.", "Ok");
         this.getProjects();
       }else if (result == 2) {
-        this.openSnackBar("Error. Education entry cannot be updated.", "Ok");
+        this.openSnackBar("Error. Project cannot be updated.", "Ok");
       }
     });
   }
@@ -95,10 +96,10 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Education deleted correctly.", "Ok");
+        this.openSnackBar("Project deleted correctly.", "Ok");
         this.getProjects();
       }else if (result == 2) {
-        this.openSnackBar("Error. Education cannot be deleted.", "Ok");
+        this.openSnackBar("Error. Project cannot be deleted.", "Ok");
       }
     });
   }
@@ -115,7 +116,7 @@ export interface ProjectElement {
   id: number;
   title: string;
   description: string;
-  skills: string[];
+  skills: string;
   urlImg: string;
   urlRepo: string;
   urlDemo: string;

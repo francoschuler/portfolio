@@ -126,51 +126,31 @@
   ],
   "projects": [
     {
-      "id": 1,
-      "title": "Proyecto Portfolio",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      "skills": [
-        "Angular",
-        "Frontend",
-        "Web Development"
-      ],
+      "title": "Portfolio",
+      "description": "Portfolio personal en el que se encuentra en este momento.",
+      "skills": "Angular,Frontend,Web Development, Problem solving",
       "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
+      "urlDemo": "https://francoschuler.github.io/portfolio/",
       "urlRepo": "https://github.com/francoschuler/portfolio",
-      "urlDemo": "https://francoschuler.github.io/portfolio/"
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Proyecto Portfolio",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      "skills": [
-        "Angular",
-        "Frontend",
-        "Web Development"
-      ],
-      "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
-      "urlRepo": "https://github.com/francoschuler/portfolio",
-      "urlDemo": "https://francoschuler.github.io/portfolio/"
+      "title": "Movies App",
+      "description": "Aplicación web que recomienda las películas, series y shows de televisión más importantes del momento. Contiene un buscador y toda la información relevante de las películas y series.",
+      "skills": "Angular,Frontend,Web",
+      "urlImg": "https://raw.githubusercontent.com/francoschuler/MoviesApp/main/cover-movies.jpeg",
+      "urlDemo": "https://francoschuler.github.io/MoviesApp/home",
+      "urlRepo": "https://github.com/francoschuler/MoviesApp",
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "Proyecto Portfolio",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-      "skills": [
-        "Angular",
-        "Frontend",
-        "Web Development"
-      ],
-      "urlImg": "https://raw.githubusercontent.com/francoschuler/portfolio/main/portfolio-frontend/cover.jpeg",
-      "urlRepo": "https://github.com/francoschuler/portfolio",
-      "urlDemo": "https://francoschuler.github.io/portfolio/"
-    },
-    {
-      "title": "a",
-      "description": "a",
-      "urlImg": "a",
-      "urlDemo": "a",
-      "urlRepo": "a",
-      "id": 4
+      "title": "Inventory App",
+      "description": "Proyecto de control de inventario",
+      "skills": "Angular, Springboot, Javascript, ChartJS, Material Angular",
+      "urlImg": "https://raw.githubusercontent.com/francoschuler/InventoryProject_Frontend/main/cover-inventory.jpeg",
+      "urlDemo": "#",
+      "urlRepo": "#",
+      "id": 3
     }
   ],
   "users_auth": [

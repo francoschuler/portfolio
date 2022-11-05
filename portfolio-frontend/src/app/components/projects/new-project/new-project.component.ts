@@ -26,6 +26,7 @@ export class NewProjectComponent implements OnInit {
       this.newProject = this.formBuilder.group({
         title: ['', Validators. required],
         description: ['', Validators. required],
+        skills: ['', Validators.required],
         urlImg: ['', Validators. required],
         urlDemo: ['', Validators. required],
         urlRepo: ['', Validators. required],
@@ -35,6 +36,7 @@ export class NewProjectComponent implements OnInit {
       this.newProject = this.formBuilder.group({
         title: [this.data.title, Validators. required],
         description: [this.data.description, Validators. required],
+        skills: [this.data.skills, Validators.required],
         urlImg: [this.data.urlImg, Validators. required],
         urlDemo: [this.data.urlDemo, Validators. required],
         urlRepo: [this.data.urlRepo, Validators. required],
@@ -47,6 +49,7 @@ export class NewProjectComponent implements OnInit {
     let data = {
       title: this.newProject.get('title')?.value,
       description: this.newProject.get('description')?.value,
+      skills: this.newProject.get('skills')?.value,
       urlImg: this.newProject.get('urlImg')?.value,
       urlDemo: this.newProject.get('urlDemo')?.value,
       urlRepo: this.newProject.get('urlRepo')?.value

@@ -14,12 +14,12 @@
 
         <div class="email">
             <i class="fa-solid fa-user fa-xl"></i>
-            <input type="email" formControlName="email" name="email" placeholder="Email" required autocomplete="off">
+            <input type="email" formControlName="email" name="email" placeholder="Email" required>
         </div>
 
         <div class="password">
             <i class="fa-solid fa-key fa-xl"></i>
-            <input type="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Password" required autocomplete="off">
+            <input type="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" name="password" placeholder="Password" required>
             <button class="hidePw" mat-icon-button (click)="hidePassword = !hidePassword">
                 <mat-icon> {{hidePassword ? 'visibility_off' : 'visibility'}} </mat-icon>
             </button>

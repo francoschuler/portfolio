@@ -15,6 +15,17 @@
             </div>
             <div class="project-info">
                 <p>{{ project.description }}</p>
+
+                <div class="project-skills grid">
+                    <div 
+                        class="skill col-6 md:col-3 lg:col-3 xl:col-3" 
+                        *ngFor="let skill of project.skills.split(',')"
+                        [matTooltip]="skill"
+                    > 
+                        {{ skill }} 
+                    </div>
+                </div>
+
                 <div class="actions">
                     <a [href]="project.urlDemo"><button class="red-btn"> Live demo </button></a>
                     <a [href]="project.urlRepo"><button class="blue-btn"> Repository </button></a>
@@ -25,5 +36,10 @@
                 <button mat-icon-button (click)="openConfirmationProject(project.id)"> <mat-icon class="delete-icon"> delete </mat-icon> </button>
             </div>
         </div>
+
+        <mat-card class="alert-card" *ngIf="noDataProject">
+            <i matTooltip="Sorry, there is probably any problem with the server." class="fa-solid fa-triangle-exclamation fa-xl"></i>
+            <mat-card-content> There is no projects available. </mat-card-content>
+        </mat-card>
     </div>
 </div>

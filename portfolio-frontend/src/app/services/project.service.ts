@@ -39,7 +39,7 @@ export class ProjectService {
    */
 
   updateProject(body: any, id: any) {
-    const endpoint = `${environment.url}/project/${id}`;
+    const endpoint = `${environment.url}/projects/${id}`;
     return this.http.put(endpoint, body);
   }
 }

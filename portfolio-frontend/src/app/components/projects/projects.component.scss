@@ -1,13 +1,11 @@
 @use 'variables' as v;
 
-.title {
+.section-title {
 
     display: flex;
     gap: .5rem;
     align-items: center;
-    flex-direction: row-reverse;
     color: v.$white;
-    margin: 2rem 0;
 
     h2 { margin: 0; }
 
@@ -17,19 +15,42 @@
 
 .projects {
     color: v.$white;
-
     .project {
-        padding: 3rem;
+        padding: 1rem;
+        // @media screen and (max-width: 1200px) {
+        //     padding: 1rem;
+        // }
         transition: all .3s ease-in-out;
         &:hover {
             transform: scale(.97);
             transition: all .3s ease-in-out;
         }
 
+        &:hover .project-img:before {
+            transition: all .3s ease-in-out;
+            content: '';
+            position:absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background: linear-gradient(0deg, rgba(8,18,33,1) 0%, rgba(8,18,33,0.30902783476671913) 100%);
+        }
+        &:hover .project-img h2 {
+            color: v.$white;
+            transition: all .3s ease-in-out;
+            opacity: 100%;
+        }
+
         .project-img {
             position: relative;
             // border: 2px solid v.$white;
             // padding: 3rem;
+            .project-img::before {
+                
+                transition: all .3s ease-in-out;
+            }
             img {
                 max-width: 100%;
                 border-top-left-radius: 15px;
@@ -44,15 +65,9 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                display: none;
-                transition: 1s ease-in;
-            }
-
-            &:hover {
-                h2 {
-                    display: block;
-                    transition: 1s ease-out;
-                }
+                opacity: 0;
+                transition: all .3s ease-in-out;
+                z-index: 10;
             }
             
         }
@@ -78,6 +93,26 @@
 
                 a {
                     width: 100%;
+                }
+            }
+
+            .project-skills {
+                gap: 1rem;
+                margin: 1rem 0;
+
+                .skill {
+                    text-align: center;
+                    color: v.$background;
+                    background-color: v.$white;
+                    border-radius: 30px;
+                    padding: .3rem;
+                    font-size: .8rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }
