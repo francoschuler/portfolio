@@ -49,3 +49,25 @@
     }
 
 }
+
+.send {
+    padding: .3rem;
+    width: 10rem;
+
+    @media only screen and (max-width: 850px) {
+        width: 100%;
+    }
+
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: v.$grey;
+    transition: .3s ease-out;
+    margin-bottom: 1rem;
+}
+
+.send:hover {
+    background-color: v.$white;
+    transition: .3s ease-in;
+}

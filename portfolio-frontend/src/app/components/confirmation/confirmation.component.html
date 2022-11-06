@@ -1,5 +1,5 @@
 <h2 *ngIf="confirmationType != 'logout'" mat-dialog-title> Are you sure you want to delete the selected {{confirmationType}}? </h2>
-<h2 *ngIf="confirmationType === 'logout'" mat-dialog-title> Are you sure you want to {{confirmationType}}? </h2>
+<h2 *ngIf="confirmationType === 'logout' || confirmationType === 'message'" mat-dialog-title> Are you sure you want to {{confirmationType}}? </h2>
 
 
 <mat-dialog-actions *ngIf="confirmationType === 'education'">
@@ -25,4 +25,9 @@
 <mat-dialog-actions *ngIf="confirmationType === 'logout'">
   <button mat-button (click)="cancel()"> No, go back </button>
   <button mat-button (click)="logout()"> Yes </button>
+</mat-dialog-actions>
+
+<mat-dialog-actions *ngIf="confirmationType === 'send'">
+  <button mat-button (click)="cancel()"> No, go back </button>
+  <button mat-button (click)="send()"> Yes </button>
 </mat-dialog-actions>

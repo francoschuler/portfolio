@@ -20,13 +20,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLogin: boolean = false;
   hidePassword: boolean = true;
-  emailOk: boolean = true;
-  passwordOk: boolean = true;
+  dataOk: boolean = true;
+  errorMsg: string = '';
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.required]],
     })
   }
 
@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/')
       },
       (error:any) => {
-        console.log("USER NOT FOUND");
+        this.errorMsg = error.error;
+        console.log("USER NOT FOUND", error);
+        this.dataOk = false;
         
       }
   );

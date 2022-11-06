@@ -2,14 +2,9 @@
     <form class="form" [formGroup]="loginForm">
         <h3 class="title"> Login </h3>
 
-        <div class="alert-card" *ngIf="!emailOk">
+        <div class="alert-card" *ngIf="!dataOk">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            Incorrect email
-        </div>
-
-        <div class="alert-card" *ngIf="!passwordOk">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            Incorrect password
+            {{errorMsg}}
         </div>
 
         <div class="email">
@@ -26,7 +21,7 @@
         </div>
 
         <div class="actions">
-            <button class="submit" type="submit" (click)="login()"> Access </button>
+            <button class="submit" type="submit" (click)="login()" [disabled]="loginForm.invalid"> Access </button>
             <button class="submit" routerLink="/home"> Go back to home page </button>
         </div>
     </form>

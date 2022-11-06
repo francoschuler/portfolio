@@ -28,7 +28,7 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSkills();
-    // this.isLogged = this.authService.isLogged();
+    this.isLogged = this.authService.isLoggedIn();
   }
 
   /**

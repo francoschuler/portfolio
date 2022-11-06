@@ -153,6 +153,26 @@
       "id": 3
     }
   ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "",
+      "email": "",
+      "message": ""
+    },
+    {
+      "name": "Franco Exequiel Schüler",
+      "email": "franschuler13@gmail.com",
+      "message": "Hola mensaje de prueba jeje",
+      "id": 2
+    },
+    {
+      "name": "Franco Exequiel Schüler",
+      "email": "franschuler13@gmail.com",
+      "message": "Mensaje de prueba 2 jeje",
+      "id": 3
+    }
+  ],
   "users": [
     {
       "email": "franschuler13@gmail.com",

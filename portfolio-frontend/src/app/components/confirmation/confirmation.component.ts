@@ -70,6 +70,10 @@ export class ConfirmationComponent implements OnInit {
     this.dialogRef.close(1);
   }
 
+  send(){
+    this.dialogRef.close(1);
+  }
+
   cancel() {
     this.dialogRef.close(3);
   }
