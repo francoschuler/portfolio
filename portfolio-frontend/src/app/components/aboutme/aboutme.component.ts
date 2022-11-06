@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Education } from 'src/app/models/Education';
+import { Employment } from 'src/app/models/Employment';
 import { AuthService } from 'src/app/services/auth.service';
 import { EducationService } from 'src/app/services/education.service';
 import { EmploymentService } from 'src/app/services/employment.service';
@@ -16,8 +18,8 @@ import { NewEmploymentComponent } from './new-employment/new-employment.componen
 })
 export class AboutmeComponent implements OnInit {
 
-  dataEducation: EducationElement[] = [];
-  dataEmployment: EmploymentElement[] = [];
+  dataEducation: Education[] = [];
+  dataEmployment: Employment[] = [];
   noDataEducation: boolean = false;
   noDataEmployment: boolean = false;
   aboutmeText: any;
@@ -33,7 +35,7 @@ export class AboutmeComponent implements OnInit {
   ngOnInit(): void {
     this.getEducations();
     this.getEmployments();
-    this.isLogged = this.authService.isLogged();
+    this.isLogged = this.authService.isLoggedIn();
   }
 
   /**
@@ -193,20 +195,4 @@ export class AboutmeComponent implements OnInit {
     })
   }
 
-}
-
-export interface EducationElement {
-  id: number;
-  title: string;
-  subtitle: string;
-  period: string;
-  description: string;
-}
-
-export interface EmploymentElement {
-  id: number;
-  title: string;
-  subtitle: string;
-  period: string;
-  description: string;
 }

@@ -1,50 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, shareReplay } from 'rxjs';
+import { BehaviorSubject, first, map, Observable, shareReplay, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/User';
+import { LoginResponse, User } from '../models/User';
+
+import * as moment from "moment";
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  // private TOKEN_KEY: string = 'token';
+  constructor(private http: HttpClient) {}
 
-  public logged: boolean = false;
+//   {
+//     "email": "franschuler20@hotmail.com",
+//     "iat": 1667750200,
+//     "exp": 1667753800,
+//     "sub": "1"
+// }
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-  // private loginUser (email: string, password: string) : Observable<string> {
-  //   const user: User = {email, password};
-  //   return this.http.post(`${environment.url}/users_auth`, user, { responseType: 'text' });
-  // }
-
-  getUsers() {
-    // this.loginUser(email, password).subscribe( (token) => {
-    //   localStorage.setItem(this.TOKEN_KEY, token);
-    //   this.router.navigateByUrl('/');
-    // })
-
-    return this.http.get<User[]>(`${environment.url}/users_auth`);
-
+  login(email: string, password: string) {
+    return this.http.post<LoginResponse>(`${environment.url}/login`, {email, password}).pipe(tap((res => jwt_decode(res.accessToken))));
   }
 
   logout() {
-    // localStorage.removeItem(this.TOKEN_KEY);
-    // this.router.navigateByUrl('/login');
-    this.logged = false;
-    this.router.navigateByUrl('/')
+      localStorage.removeItem("id_token");
+      localStorage.removeItem("expires_at");
   }
 
-  isLogged(): boolean {
-    return this.logged;
-    // let token = localStorage.getItem(this.TOKEN_KEY);
-    // return token != null && token.length > 0;
+  public isLoggedIn() {
+      return moment().isBefore(this.getExpiration());
   }
 
-  // public getToken(): string | null {
-  //   return this.isLogged() ? localStorage.getItem(this.TOKEN_KEY) : null;
-  // }
+  getExpiration() {
+      const expiration = localStorage.getItem("expires_at");
+      const expiresAt = JSON.parse(expiration || '{}');
+      return moment(expiresAt);
+  }    
 }

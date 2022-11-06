@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Project } from 'src/app/models/Project';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
@@ -14,7 +15,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
 })
 export class ProjectsComponent implements OnInit {
 
-  dataProjects: ProjectElement[] = [];
+  dataProjects: Project[] = [];
   noDataProject: boolean = false;
   isLogged: boolean = false;
   loading: boolean = false;
@@ -27,7 +28,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProjects();
-    this.isLogged = this.authService.isLogged();
+    this.isLogged = this.authService.isLoggedIn();
   }
 
       /**
@@ -58,6 +59,7 @@ export class ProjectsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result:any) => {
       if (result == 1) {
         this.openSnackBar("New project added correctly.", "Ok");
+        this.getProjects();
       }else if (result == 2) {
         this.openSnackBar("Error. New project cannot be added.", "Ok");
       }
@@ -110,14 +112,4 @@ export class ProjectsComponent implements OnInit {
     })
   }
 
-}
-
-export interface ProjectElement {
-  id: number;
-  title: string;
-  description: string;
-  skills: string;
-  urlImg: string;
-  urlRepo: string;
-  urlDemo: string;
 }

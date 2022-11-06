@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Skill } from 'src/app/models/Skill';
 import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
@@ -13,10 +14,10 @@ import { NewSkillComponent } from './new-skill/new-skill.component';
 })
 export class SkillsComponent implements OnInit {
 
-  dataSkill: SkillElement[] = [];
-  dataFrontend: SkillElement[] =  [];
-  dataBackend: SkillElement[] =  [];
-  dataOthers: SkillElement[] =  [];
+  dataSkill: Skill[] = [];
+  dataFrontend: Skill[] =  [];
+  dataBackend: Skill[] =  [];
+  dataOthers: Skill[] =  [];
   noDataSkill: boolean = false;
   isLogged: boolean = false;
 
@@ -27,7 +28,7 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSkills();
-    this.isLogged = this.authService.isLogged();
+    // this.isLogged = this.authService.isLogged();
   }
 
   /**
@@ -52,7 +53,7 @@ export class SkillsComponent implements OnInit {
     this.dataBackend = [];
     this.dataOthers = [];
 
-    data.forEach( (skill:SkillElement) => {
+    data.forEach( (skill:Skill) => {
       if(skill.stack === 'Frontend') {
         // console.log("FRONTEND", skill.name, skill.id)
         this.dataFrontend.push(skill);
@@ -132,10 +133,4 @@ export class SkillsComponent implements OnInit {
 
 }
 
-export interface SkillElement {
-  id: number;
-  name: string;
-  icon: string;
-  stack: string;
-  level: number;
-}
+

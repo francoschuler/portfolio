@@ -82,6 +82,8 @@ export class SidenavComponent implements OnInit {
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
         this.openSnackBar("Session closed correctly.", "Ok");
+        this.authService.logout();
+        this.router.navigateByUrl('/login');
       }else if (result == 2) {
         this.openSnackBar("Error. There was an error trying to close the session.", "Ok");
       }
@@ -89,7 +91,11 @@ export class SidenavComponent implements OnInit {
   }
 
   isLogged() {
-    return this.authService.isLogged();
+    return this.authService.isLoggedIn();
+  }
+
+  isLoggedOut() {
+    return !this.isLogged();
   }
 
   openSnackBar(message: string, action: string) {
