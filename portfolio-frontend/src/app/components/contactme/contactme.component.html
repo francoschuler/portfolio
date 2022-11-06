@@ -20,4 +20,16 @@
             <button class="send" type="submit" (click)="sendMessage()" [disabled]="contactForm.invalid"> Send </button>
         </form>
     </div>
+    
 </div>
+
+<ng-container *ngIf="isLogged">
+    <mat-card *ngFor="let message of messages" class="example-card">
+        <mat-card-title>{{message.name}}</mat-card-title>
+        
+        <mat-card-subtitle>{{message.email}}</mat-card-subtitle>
+        <mat-card-content>
+            <p>{{ message.message }}</p>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
