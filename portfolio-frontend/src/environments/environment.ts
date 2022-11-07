@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:3000',
-  email: 'franschuler13@gmail.com',
-  password: 'portfolio_FS10'
+  url: 'http://localhost:3000'
 };
 
 /*
