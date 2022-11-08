@@ -86,10 +86,10 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("New education added correctly.", "Ok");
+        this.openSnackBar("New education added correctly.", "Ok", "success-snackbar");
         this.getEducations();
       }else if (result == 2) {
-        this.openSnackBar("Error. New education cannot be added.", "Ok");
+        this.openSnackBar("Error. New education cannot be added.", "Ok", "error-snackbar");
       }
     });
   }
@@ -109,10 +109,10 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("Education entry updated correctly.", "Ok");
+        this.openSnackBar("Education entry updated correctly.", "Ok", "success-snackbar");
         this.getEducations();
       }else if (result == 2) {
-        this.openSnackBar("Error. Education entry cannot be updated.", "Ok");
+        this.openSnackBar("Error. Education entry cannot be updated.", "Ok", "error-snackbar");
       }
     });
   }
@@ -125,10 +125,10 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("New employment added correctly.", "Ok");
+        this.openSnackBar("New employment added correctly.", "Ok", "success-snackbar");
         this.getEmployments();
       }else if (result == 2) {
-        this.openSnackBar("Error. New employment cannot be added.", "Ok");
+        this.openSnackBar("Error. New employment cannot be added.", "Ok", "error-snackbar");
       }
     });
   }
@@ -148,10 +148,10 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("Employment entry updated correctly.", "Ok");
+        this.openSnackBar("Employment entry updated correctly.", "Ok", "success-snackbar");
         this.getEmployments();
       }else if (result == 2) {
-        this.openSnackBar("Error. Employment entry cannot be updated.", "Ok");
+        this.openSnackBar("Error. Employment entry cannot be updated.", "Ok", "error-snackbar");
       }
     });
   }
@@ -164,10 +164,10 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Education deleted correctly.", "Ok");
+        this.openSnackBar("Education deleted correctly.", "Ok", "success-snackbar");
         this.getEducations();
       }else if (result == 2) {
-        this.openSnackBar("Error. Education cannot be deleted.", "Ok");
+        this.openSnackBar("Error. Education cannot be deleted.", "Ok", "error-snackbar");
       }
     });
   }
@@ -180,18 +180,19 @@ export class AboutmeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Employment deleted correctly.", "Ok");
+        this.openSnackBar("Employment deleted correctly.", "Ok", "success-snackbar");
         this.getEmployments();
       }else if (result == 2) {
-        this.openSnackBar("Error. Employment cannot be deleted.", "Ok");
+        this.openSnackBar("Error. Employment cannot be deleted.", "Ok", "error-snackbar");
       }
     });
   }
 
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
-      duration: 2500
+      duration: 99999,
+      panelClass: [panelClass],
     })
   }
 

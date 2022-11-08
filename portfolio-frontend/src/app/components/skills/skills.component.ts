@@ -127,7 +127,8 @@ export class SkillsComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 2500
+      duration: 2500,
+      panelClass: ['custom-snackbar']
     })
   }
 

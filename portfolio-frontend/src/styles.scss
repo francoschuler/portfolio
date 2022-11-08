@@ -84,6 +84,48 @@ input {
     color-scheme: dark;
 }
 
+.success-snackbar {
+    .mat-simple-snackbar {
+
+    font-size: .95rem !important;
+    }
+    display: flex !important;
+    align-items: center !important;
+    background: v.$green;
+    opacity: .9 !important;
+    color: v.$darkgreen;
+    font-weight: bold;
+    min-height: 60px !important;
+    // border: 2px solid v.$darkgreen;
+    border-radius: 10px !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.success-snackbar button {
+    display: none;
+}
+
+.error-snackbar {
+    .mat-simple-snackbar {
+        font-size: .95rem !important;
+    }
+    display: flex !important;
+    align-items: center !important;
+    background: v.$red;
+    opacity: .9 !important;
+    color: v.$white;
+    font-weight: bold;
+    min-height: 60px !important;
+    border-radius: 10px !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.error-snackbar button {
+    display: none;
+}
+
 
 
 

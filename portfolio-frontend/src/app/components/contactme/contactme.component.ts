@@ -32,7 +32,9 @@ export class ContactmeComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
-    this.getMessages();
+
+    if(this.isLogged) this.getMessages(); 
+    
   }
 
   getMessages() {
@@ -71,7 +73,8 @@ export class ContactmeComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 3000
+      duration: 3000,
+      panelClass: ['custom-snackbar'],
     })
   }
 
