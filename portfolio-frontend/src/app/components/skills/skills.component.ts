@@ -78,10 +78,10 @@ export class SkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("New skill added correctly.", "Ok");
+        this.openSnackBar("New skill added correctly.", "Ok", "success-snackbar");
         this.getSkills();
       }else if (result == 2) {
-        this.openSnackBar("Error. New skill cannot be added.", "Ok");
+        this.openSnackBar("Error. New skill cannot be added.", "Ok", "error-snackbar");
       }
     });
   }
@@ -101,10 +101,10 @@ export class SkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("Skill updated correctly.", "Ok");
+        this.openSnackBar("Skill updated correctly.", "Ok", "success-snackbar");
         this.getSkills();
       }else if (result == 2) {
-        this.openSnackBar("Error. Skill entry cannot be updated.", "Ok");
+        this.openSnackBar("Error. Skill entry cannot be updated.", "Ok", "error-snackbar");
       }
     });
   }
@@ -117,18 +117,18 @@ export class SkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Skill deleted correctly.", "Ok");
+        this.openSnackBar("Skill deleted correctly.", "Ok", "success-snackbar");
         this.getSkills();
       }else if (result == 2) {
-        this.openSnackBar("Error. Skill cannot be deleted.", "Ok");
+        this.openSnackBar("Error. Skill cannot be deleted.", "Ok", "error-snackbar");
       }
     });
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
-      duration: 2500,
-      panelClass: ['custom-snackbar']
+      duration: 3000,
+      panelClass: [panelClass],
     })
   }
 

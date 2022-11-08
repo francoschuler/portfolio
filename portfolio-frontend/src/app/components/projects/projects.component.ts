@@ -58,10 +58,10 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result:any) => {
       if (result == 1) {
-        this.openSnackBar("New project added correctly.", "Ok");
+        this.openSnackBar("New project added correctly.", "Ok", "success-snackbar");
         this.getProjects();
       }else if (result == 2) {
-        this.openSnackBar("Error. New project cannot be added.", "Ok");
+        this.openSnackBar("Error. New project cannot be added.", "Ok", "error-snackbar");
       }
     });
   }
@@ -82,10 +82,10 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 1) {
-        this.openSnackBar("Project updated correctly.", "Ok");
+        this.openSnackBar("Project updated correctly.", "Ok", "success-snackbar");
         this.getProjects();
       }else if (result == 2) {
-        this.openSnackBar("Error. Project cannot be updated.", "Ok");
+        this.openSnackBar("Error. Project cannot be updated.", "Ok", "error-snackbar");
       }
     });
   }
@@ -98,18 +98,18 @@ export class ProjectsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Project deleted correctly.", "Ok");
+        this.openSnackBar("Project deleted correctly.", "Ok", "success-snackbar");
         this.getProjects();
       }else if (result == 2) {
-        this.openSnackBar("Error. Project cannot be deleted.", "Ok");
+        this.openSnackBar("Error. Project cannot be deleted.", "Ok", "error-snackbar");
       }
     });
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
-      duration: 2500,
-      panelClass: ['custom-snackbar']
+      duration: 3000,
+      panelClass: [panelClass],
     })
   }
 

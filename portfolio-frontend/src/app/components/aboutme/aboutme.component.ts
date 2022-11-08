@@ -191,7 +191,7 @@ export class AboutmeComponent implements OnInit {
 
   openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
-      duration: 99999,
+      duration: 3000,
       panelClass: [panelClass],
     })
   }

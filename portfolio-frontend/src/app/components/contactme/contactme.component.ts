@@ -59,9 +59,9 @@ export class ContactmeComponent implements OnInit {
           message: this.contactForm.value.message
         }).subscribe((res) => {
           this.contactForm.reset();
-          this.openSnackBar('Message was sent correctly.', 'Ok');
+          this.openSnackBar('Message was sent correctly.', 'Ok', 'success-snackbar');
         }, (error:any) => {
-          this.openSnackBar('Sorry, there was an error trying to send the message. Please, try again.', 'Ok');
+          this.openSnackBar('Sorry, there was an error trying to send the message. Please, try again.', 'Ok', 'error-snackbar');
   
         })
       }
@@ -71,10 +71,10 @@ export class ContactmeComponent implements OnInit {
     
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
       duration: 3000,
-      panelClass: ['custom-snackbar'],
+      panelClass: [panelClass],
     })
   }
 
