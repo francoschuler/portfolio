@@ -27,7 +27,7 @@
                         </li>
         
                         <li>
-                            <a *ngIf="!isLogged()" routerLink="login">
+                            <a *ngIf="isLoggedOut()" routerLink="login">
                                 <mat-icon> lock_open </mat-icon>
                                 Login
                             </a>

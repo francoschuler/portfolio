@@ -1,7 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -81,11 +80,11 @@ export class SidenavComponent implements OnInit {
     
     dialogRef.afterClosed().subscribe( (result) => {
       if (result == 1) {
-        this.openSnackBar("Session closed correctly.", "Ok");
+        this.openSnackBar("Session closed correctly.", "Ok", "success-snackbar");
         this.authService.logout();
         this.router.navigateByUrl('/login');
       }else if (result == 2) {
-        this.openSnackBar("Error. There was an error trying to close the session.", "Ok");
+        this.openSnackBar("Error. There was an error trying to close the session.", "Ok", "error-snackbar");
       }
     });
   }
@@ -98,9 +97,10 @@ export class SidenavComponent implements OnInit {
     return !this.isLogged();
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, panelClass: string) {
     this.snackBar.open(message, action, {
-      duration: 2500
+      duration: 3000,
+      panelClass: [panelClass],
     })
   }
 

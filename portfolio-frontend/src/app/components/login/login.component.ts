@@ -7,6 +7,7 @@ import { ViewEncapsulation } from '@angular/core';
 import * as moment from "moment";
 import jwt_decode from 'jwt-decode';
 import { LoginResponse } from 'src/app/models/User';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   dataOk: boolean = true;
   errorMsg: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.required]],
@@ -38,11 +39,12 @@ export class LoginComponent implements OnInit {
       (res:LoginResponse) => {
         console.log(jwt_decode(res.accessToken))
         this.setSession(jwt_decode(res.accessToken));
-        this.router.navigateByUrl('/')
+        this.router.navigateByUrl('/');
+        this.openSnackBar('Login successful!', 'Ok', 'success-snackbar');
       },
       (error:any) => {
         this.errorMsg = error.error;
-        console.log("USER NOT FOUND", error);
+        this.openSnackBar('There was an error. Please, try again.', 'Ok', 'error-snackbar');
         this.dataOk = false;
         
       }
@@ -54,7 +56,14 @@ export class LoginComponent implements OnInit {
 
     localStorage.setItem('id_token', authResult.sub);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-  }   
+  }
+
+  openSnackBar(message: string, action: string, panelClass: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      panelClass: [panelClass],
+    })
+  }
   
   // this.authService.getUsers()
   // .subscribe( (users) => {
