@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'https://portfolio-mockbackend.herokuapp.com'
+  // url: 'https://portfolio-mockbackend.herokuapp.com'
+  url: 'http://localhost:3000'
 };
 
 /*

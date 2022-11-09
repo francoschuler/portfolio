@@ -3,7 +3,7 @@
     <div class="contact">
         <h2> Contact me! </h2>
         <p>Fill up the following form in order to contact me :)</p>
-        <form class="form" [formGroup]="contactForm">
+        <form class="form" [formGroup]="contactForm" (submit)="sendMessage($event)">
 
             <div>
                 <input type="text" formControlName="name" name="name" placeholder="Name" required>
@@ -17,7 +17,7 @@
                 <textarea formControlName="message" name="message" placeholder="Message" required rows="10" ></textarea>
             </div>
     
-            <button class="send" type="submit" (click)="sendMessage()" [disabled]="contactForm.invalid"> Send </button>
+            <button class="send" type="submit" [disabled]="contactForm.invalid"> Send </button>
         </form>
     </div>
     

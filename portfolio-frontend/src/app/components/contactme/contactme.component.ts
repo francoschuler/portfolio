@@ -6,6 +6,9 @@ import { Message } from 'src/app/models/Message';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { ThisReceiver } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-contactme',
@@ -37,6 +40,8 @@ export class ContactmeComponent implements OnInit {
     
   }
 
+  
+
   getMessages() {
     this.messageService.getMessages()
       .subscribe((res:any) => {
@@ -44,29 +49,48 @@ export class ContactmeComponent implements OnInit {
       })
   }
 
-  sendMessage(){
+  sendMessage(e: Event){
+
+    let templateParams = {
+      from_name: this.contactForm.value.name,
+      from_email: this.contactForm.value.email,
+      message: this.contactForm.value.message
+  };
+
+    e.preventDefault();
+    emailjs.send('service_xr86skc', 'template_coz416g', templateParams, 'qSmwZHh2LQOY63XqJ')
+      .then((result: EmailJSResponseStatus) => {
+        this.openSnackBar('Thanks! Your message was sent correctly.', 'Ok', 'success-snackbar');
+        this.contactForm.reset();
+      }, (error) => {
+        this.openSnackBar('Sorry, your message could not be sent. Please, try again.', 'Ok', 'error-snackbar');
+        console.log(error.text);
+      });
 
     const dialogRef = this.dialog.open(ConfirmationComponent, {
       width: '500px',
       data: { type: 'send'}
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if(result === 1) {
-        this.messageService.sendMessage({
-          name: this.contactForm.value.name,
-          email: this.contactForm.value.email,
-          message: this.contactForm.value.message
-        }).subscribe((res) => {
-          this.contactForm.reset();
-          this.openSnackBar('Message was sent correctly.', 'Ok', 'success-snackbar');
-        }, (error:any) => {
-          this.openSnackBar('Sorry, there was an error trying to send the message. Please, try again.', 'Ok', 'error-snackbar');
-  
-        })
-      }
+    const message: Message = this.contactForm.value;
 
-    });
+
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   if(result === 1) {
+    //     this.messageService.sendMessage({
+    //       name: this.contactForm.value.name,
+    //       email: this.contactForm.value.email,
+    //       message: this.contactForm.value.message
+    //     }).subscribe((res) => {
+    //       this.contactForm.reset();
+    //       this.openSnackBar('Message was sent correctly.', 'Ok', 'success-snackbar');
+    //     }, (error:any) => {
+    //       this.openSnackBar('Sorry, there was an error trying to send the message. Please, try again.', 'Ok', 'error-snackbar');
+  
+    //     })
+    //   }
+
+    // });
     
     
   }

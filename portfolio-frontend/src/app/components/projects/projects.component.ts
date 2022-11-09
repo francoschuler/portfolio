@@ -37,8 +37,7 @@ export class ProjectsComponent implements OnInit {
     getProjects() {
         this.projectService.getProjects()
         .subscribe( ( data:any ) => {
-          console.log('AQUI', data);
-          
+          // console.log('AQUI', data);
           this.dataProjects = data;
           this.noDataProject = this.dataProjects.length === 0 ? true : false;
     
