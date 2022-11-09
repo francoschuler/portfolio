@@ -35,64 +35,35 @@ export class ContactmeComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
-
-    if(this.isLogged) this.getMessages(); 
-    
-  }
-
-  
-
-  getMessages() {
-    this.messageService.getMessages()
-      .subscribe((res:any) => {
-        this.messages = res;
-      })
   }
 
   sendMessage(e: Event){
-
-    let templateParams = {
-      from_name: this.contactForm.value.name,
-      from_email: this.contactForm.value.email,
-      message: this.contactForm.value.message
-  };
-
-    e.preventDefault();
-    emailjs.send('service_xr86skc', 'template_coz416g', templateParams, 'qSmwZHh2LQOY63XqJ')
-      .then((result: EmailJSResponseStatus) => {
-        this.openSnackBar('Thanks! Your message was sent correctly.', 'Ok', 'success-snackbar');
-        this.contactForm.reset();
-      }, (error) => {
-        this.openSnackBar('Sorry, your message could not be sent. Please, try again.', 'Ok', 'error-snackbar');
-        console.log(error.text);
-      });
 
     const dialogRef = this.dialog.open(ConfirmationComponent, {
       width: '500px',
       data: { type: 'send'}
     });
 
-    const message: Message = this.contactForm.value;
-
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if(result === 1) {
-    //     this.messageService.sendMessage({
-    //       name: this.contactForm.value.name,
-    //       email: this.contactForm.value.email,
-    //       message: this.contactForm.value.message
-    //     }).subscribe((res) => {
-    //       this.contactForm.reset();
-    //       this.openSnackBar('Message was sent correctly.', 'Ok', 'success-snackbar');
-    //     }, (error:any) => {
-    //       this.openSnackBar('Sorry, there was an error trying to send the message. Please, try again.', 'Ok', 'error-snackbar');
-  
-    //     })
-    //   }
-
-    // });
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result === 1){
+        let templateParams = {
+          from_name: this.contactForm.value.name,
+          from_email: this.contactForm.value.email,
+          message: this.contactForm.value.message
+        };
     
-    
+        e.preventDefault();
+        emailjs.send('service_xr86skc', 'template_coz416g', templateParams, 'qSmwZHh2LQOY63XqJ')
+          .then((result: EmailJSResponseStatus) => {
+            this.openSnackBar('Thanks! Your message was sent correctly.', 'Ok', 'success-snackbar');
+            this.contactForm.reset();
+          }, (error) => {
+            this.openSnackBar('Sorry, your message could not be sent. Please, try again.', 'Ok', 'error-snackbar');
+            console.log(error.text);
+          });
+      }
+    })
+
   }
 
   openSnackBar(message: string, action: string, panelClass: string) {
