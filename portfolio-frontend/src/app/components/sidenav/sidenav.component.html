@@ -60,7 +60,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <div class="ham-menu fixed" *ngIf="mobileQuery.matches">
+        <div class="ham-menu fixed" *ngIf="mobileQuery.matches && !isLogin">
             <button mat-icon-button (click)="toggleSidenav()"> <mat-icon>menu</mat-icon> </button>
         </div>
         <router-outlet></router-outlet>

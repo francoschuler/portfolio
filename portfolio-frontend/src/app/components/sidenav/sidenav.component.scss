@@ -1,10 +1,11 @@
 @import "variables";
 
 .ham-menu {
-    background-color: $background;
+    background-color: $background-trans;
     color: $white;
     padding: 1rem;
     width: 100%;
+    z-index: 99;
     mat-icon {
         color: $white;  
         transform: scale(1.5);

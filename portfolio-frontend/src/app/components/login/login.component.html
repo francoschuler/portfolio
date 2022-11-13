@@ -1,4 +1,7 @@
+
 <div class="login-container">
+    <button class="back" routerLink="/home"><i class="fa-solid fa-circle-chevron-left fa-xl"></i> Go back to home page </button>
+
     <form class="form" [formGroup]="loginForm">
         <h3 class="title"> Login </h3>
 
@@ -22,7 +25,6 @@
 
         <div class="actions">
             <button class="submit" type="submit" (click)="login()" [disabled]="loginForm.invalid"> Access </button>
-            <button class="submit" routerLink="/home"> Go back to home page </button>
         </div>
     </form>
 </div>

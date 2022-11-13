@@ -84,6 +84,15 @@ input {
     color-scheme: dark;
 }
 
+
+.mat-snack-bar-handset .mat-snack-bar-container{
+    @media only screen and (max-width: 600px) {
+        margin: 15px !important;
+        max-width: 60% !important ;
+    }
+}
+
+
 .success-snackbar {
     .mat-simple-snackbar {
 
@@ -96,6 +105,8 @@ input {
     color: v.$darkgreen;
     font-weight: bold;
     min-height: 60px !important;
+    margin: 15px;
+    max-width: 60%;
     // border: 2px solid v.$darkgreen;
     border-radius: 10px !important;
     position: absolute;
