@@ -46,7 +46,6 @@ export class AboutmeComponent implements OnInit {
     this.educationService.getEducations()
     .subscribe( async ( data:any ) => {
       this.dataEducation = data;
-      console.log(this.dataEducation[0].period);
       this.noDataEducation = this.dataEducation.length === 0 ? true : false;
       this.loading = false;
 
@@ -63,8 +62,6 @@ export class AboutmeComponent implements OnInit {
     getEmployments() {
       this.employmentService.getEmployments()
       .subscribe( ( data:any ) => {
-        // console.log('AQUI', data);
-        
         this.dataEmployment = data;
         this.noDataEmployment = this.dataEmployment.length === 0 ? true : false;
   
@@ -95,7 +92,6 @@ export class AboutmeComponent implements OnInit {
   }
 
   openEditEducationDialog(id:number, title: string, subtitle: string, period: string, description: string): void {
-    console.log("aboutme", id);
     const dialogRef = this.dialog.open(NewEducationComponent, {
       width: '500px',
       data: {
@@ -134,7 +130,6 @@ export class AboutmeComponent implements OnInit {
   }
 
   openEditEmploymentDialog(id:number, title: string, subtitle: string, period: string, description: string): void {
-    console.log("aboutme", id);
     const dialogRef = this.dialog.open(NewEmploymentComponent, {
       width: '500px',
       data: {

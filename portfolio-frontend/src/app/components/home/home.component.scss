@@ -26,6 +26,14 @@
     .subtitle {
         font-family: $secondary;
         font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .wrapper {
+        color: $white;
+        font-family: $secondary;
+        font-size: 2rem;
+        width: 100%;
     }
 
     .actions {

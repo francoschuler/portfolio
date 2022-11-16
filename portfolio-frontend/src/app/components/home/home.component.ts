@@ -1,6 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Typed from 'typed.js';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,21 @@ export class HomeComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+
+
+    const typeOptions = {
+      strings: ['Junior Web Developer', 'Computer Science Engineer'],
+      startDelay: 500,
+      typeSpeed: 125,
+      backSpeed: 25,
+      showCursor: true,
+      backDelay: 1000,
+      loop: true
+    };
+
+    const typed = new Typed('.subtitle', typeOptions);
   }
+
 
 
   onClickScroll( id:string ) {
