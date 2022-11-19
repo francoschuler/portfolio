@@ -68,6 +68,7 @@ export class SidenavComponent implements OnInit {
   }
 
   watchQuery(){
+    this.isShowing = true;
     console.log('query change');
     
   }

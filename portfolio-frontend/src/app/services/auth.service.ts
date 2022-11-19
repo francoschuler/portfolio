@@ -23,21 +23,20 @@ export class AuthService {
 // }
 
   login(email: string, password: string) {
-    return this.http.post<LoginResponse>(`${environment.url}/login`, {email, password}).pipe(tap((res => jwt_decode(res.accessToken))));
+    return this.http.post<LoginResponse>(`${environment.url}/login`, {email, password})
+    .pipe(map((res => {
+      if (res && res.accessToken) {
+        localStorage.setItem('user', JSON.stringify(res));
+      }
+      return res;
+    })));
   }
 
   logout() {
-      localStorage.removeItem("id_token");
-      localStorage.removeItem("expires_at");
+      localStorage.removeItem('user');
   }
 
   public isLoggedIn() {
-      return moment().isBefore(this.getExpiration());
-  }
-
-  getExpiration() {
-      const expiration = localStorage.getItem("expires_at");
-      const expiresAt = JSON.parse(expiration || '{}');
-      return moment(expiresAt);
-  }    
+      return localStorage.getItem('user') != null;
+  }  
 }
