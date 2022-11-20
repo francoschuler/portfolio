@@ -16,7 +16,6 @@
         <div class="title">
             <h2 class="section-subtitle">Educational Background</h2>
             <button *ngIf="isLogged" mat-icon-button (click)="openNewEducationDialog()"><mat-icon>add_circle_outline</mat-icon></button>
-            <div class="line"></div>
         </div>
 
         <!-- <div class="spinner">
@@ -54,7 +53,6 @@
         <div class="title">
             <h2 class="section-subtitle">Employment History</h2>
             <button *ngIf="isLogged" mat-icon-button (click)="openNewEmploymentDialog()"><mat-icon>add_circle_outline</mat-icon></button>
-            <div class="line"></div>
         </div>
         <div class="grid">
             <div class="col-12 md:col-12 lg:col-6 xl:col-4" *ngFor="let e of dataEmployment" >

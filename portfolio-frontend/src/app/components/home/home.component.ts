@@ -17,13 +17,13 @@ export class HomeComponent implements OnInit {
 
 
     const typeOptions = {
-      strings: ['Junior Web Developer', 'Computer Science Engineer'],
+      strings: ['Junior Web Developer', 'Computer Science Engineer', 'Private Teacher'],
       startDelay: 500,
-      typeSpeed: 125,
+      typeSpeed: 100,
       backSpeed: 25,
       showCursor: true,
       backDelay: 1000,
-      loop: true
+      loop: true,
     };
 
     const typed = new Typed('.subtitle', typeOptions);

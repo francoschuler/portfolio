@@ -5,7 +5,6 @@
     display: flex;
     gap: .5rem;
     align-items: center;
-    flex-direction: row-reverse;
     color: v.$white;
     margin: 2rem 0;
 
@@ -23,11 +22,11 @@
 
     &-title {
         padding: .5rem;
-        background-color: v.$white;
+        background-color: v.$background3;
         border-top-right-radius: .5rem;
         border-top-left-radius: .5rem;
         // border-bottom: 2px solid v.$primary;
-        color: v.$background;
+        color: v.$white;
         h3 {font-size: 1.1rem;}
     }
 
@@ -90,5 +89,6 @@
 
 .section-subtitle {
     min-width: 17rem;
+    font-weight:400;
     margin: 0;
 }

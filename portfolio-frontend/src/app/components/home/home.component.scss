@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as v;
 
 .title-container{
 
@@ -11,27 +11,27 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: $white;
+    color: v.$white;
     width: 100%;
     padding: 2rem;
 
 
     .title{
-        font-family: $main;
+        font-family: v.$main;
         font-size: 3.2rem;
-        font-weight: $main-bold;
+        font-weight: v.$main-bold;
         letter-spacing: .15rem;
     }
     
     .subtitle {
-        font-family: $secondary;
+        font-family: v.$secondary;
         font-size: 2rem;
         letter-spacing: 1px;
     }
 
     .wrapper {
-        color: $white;
-        font-family: $secondary;
+        color: v.$white;
+        font-family: v.$secondary;
         font-size: 2rem;
         width: 100%;
     }
@@ -40,6 +40,20 @@
         display: flex;
         gap: 2rem;
         margin-top: 2rem;
+
+        button {
+            color: v.$white;
+            background-color: transparent;
+            border: none;
+            transition: all .3s ease;
+            padding: .5rem .8rem;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            border: none;
+            background-color: v.$background;
+        }
     }
 
 }

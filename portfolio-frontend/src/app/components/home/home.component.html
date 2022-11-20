@@ -2,7 +2,7 @@
 <div class="title-container" id="home">
     <ul>
         <li>
-            <h1 class="title"> Hi! I'm Franco Exequiel Schüler </h1>
+            <h1 class="title"> Hi! My name is Franco Exequiel Schüler </h1>
         </li>
 
         <li>
@@ -13,8 +13,8 @@
         </li>
         <li>
             <div class="actions">
-                <button (click)="onClickScroll('contactme')" mat-raised-button> Contact me! </button>
-                <button mat-raised-button [matMenuTriggerFor]="menu"> Download CV </button>
+                <button (click)="onClickScroll('contactme')"> Contact me </button>
+                <button [matMenuTriggerFor]="menu"> Download CV </button>
                 <mat-menu #menu="matMenu">
                     <a href="/assets/files/CV_FrancoExequielSchüler_07082022.pdf" download> <button mat-menu-item>Spanish</button> </a>
                     <a href="/assets/files/CV_FrancoExequielSchüler_07082022_ENGLISH.pdf" download> <button mat-menu-item>English</button> </a>
