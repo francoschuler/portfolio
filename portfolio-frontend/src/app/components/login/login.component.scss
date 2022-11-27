@@ -51,7 +51,7 @@
             transition: all 0.3s;
         }
 
-        input:focus {
+        input:focus, input:hover {
             outline: none;
             box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.369);
         }
