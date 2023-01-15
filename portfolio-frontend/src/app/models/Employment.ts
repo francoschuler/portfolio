@@ -1,5 +1,5 @@
 export interface Employment {
-    id: number;
+    id: string;
     title: string;
     subtitle: string;
     period: string;

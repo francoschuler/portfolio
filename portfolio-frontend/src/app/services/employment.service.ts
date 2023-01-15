@@ -1,45 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { addDoc, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collection } from '@firebase/firestore';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Employment } from '../models/Employment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmploymentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private firestore: Firestore) { }
 
 
   /**
    * Gets all employments
    */
-  getEmployments() {
-    const endpoint = `${environment.url}/employments`;
-    return this.http.get(endpoint);
+  getEmployments(): Observable<Employment[]> {
+    const employmentRef = collection(this.firestore, 'employments');
+    return collectionData(employmentRef, { idField: 'id' }) as Observable<Employment[]>;
   }
 
   /**
    * Saves a new employment entry
    */
-  saveEmployment(body:any){
-    const endpoint = `${environment.url}/employments`;
-    return this.http.post(endpoint, body);
+  saveEmployment(employment: Employment){
+    const educationRef = collection(this.firestore, 'employments');
+    return addDoc(educationRef, employment);
   }
 
   /**
    * Deletes an employment entry
    */
-  deleteEmployment(id:any) {
-    const endpoint = `${environment.url}/employments/${id}`;
-    return this.http.delete(endpoint);
+  deleteEmployment(employment: Employment) {
+    const docRef = doc(this.firestore, `employments/${employment.id}`);
+    return deleteDoc(docRef);
   }
 
   /**
    * Updates an employment entry
    */
-  updateEmployment(body: any, id: any) {
-    const endpoint = `${environment.url}/employments/${id}`;
-    return this.http.put(endpoint, body);
+
+  updateEmployment(employment: Employment, id: string) {
+    const docRef = doc(this.firestore, `employments/${id}`);
+    return updateDoc(docRef, {...employment});
   }
+
+
 
 }

@@ -4,10 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Message } from 'src/app/models/Message';
 import { AuthService } from 'src/app/services/auth.service';
-import { MessageService } from 'src/app/services/message.service';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
-import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -23,7 +21,6 @@ export class ContactmeComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private messageService: MessageService,
               private dialog: MatDialog,
               private snackBar: MatSnackBar
               ) { }

@@ -1,45 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { addDoc, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collection } from '@firebase/firestore';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Project } from '../models/Project';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private firestore: Firestore) { }
 
 
   /**
    * Gets all projects
    */
-  getProjects() {
-    const endpoint = `${environment.url}/projects`;
-    return this.http.get(endpoint);
+  getProjects(): Observable<Project[]> {
+    const projectRef = collection(this.firestore, 'projects');
+    return collectionData(projectRef, { idField: 'id' }) as Observable<Project[]>;
   }
 
   /**
-   * Saves a new project
+   * Saves a new project entry
    */
-  saveProject(body:any){
-    const endpoint = `${environment.url}/projects`;
-    return this.http.post(endpoint, body);
+  saveProject(project: Project){
+    const projectRef = collection(this.firestore, 'projects');
+    return addDoc(projectRef, project);
   }
 
   /**
-   * Deletes a project
+   * Deletes a project entry
    */
-  deleteProject(id:any) {
-    const endpoint = `${environment.url}/projects/${id}`;
-    return this.http.delete(endpoint);
+  deleteProject(project: Project) {
+    const docRef = doc(this.firestore, `projects/${project.id}`);
+    return deleteDoc(docRef);
   }
 
   /**
-   * Updates a project
+   * Updates a project entry
    */
 
-  updateProject(body: any, id: any) {
-    const endpoint = `${environment.url}/projects/${id}`;
-    return this.http.put(endpoint, body);
+  updateProject(project: Project, id: string) {
+    const docRef = doc(this.firestore, `projects/${id}`);
+    return updateDoc(docRef, {...project});
   }
+
+
 }

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Skill } from 'src/app/models/Skill';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -39,38 +40,33 @@ export class NewSkillComponent implements OnInit {
     }
   }
 
-  saveSkill() {
+  async saveSkill() {
+
+    const data: Skill = {
+      name: this.newSkill.get('name')?.value,
+      icon: this.newSkill.get('icon')?.value,
+      stack: this.data.stack,
+      level: this.level
+    }
+
+    console.log(data);
+    
 
     if (this.data.action === 'save') {
-
-      let data = {
-        name: this.newSkill.get('name')?.value,
-        icon: this.newSkill.get('icon')?.value,
-        stack: this.data.stack,
-        level: this.level
+      try{
+        const response = await this.skillsService.saveSkill(data);
+        this.dialogRef.close(1);
+      } catch(error) {
+        this.dialogRef.close(2);
       }
-
-      this.skillsService.saveSkill(data)
-                  .subscribe( (result:any) => {
-                    this.dialogRef.close(1);
-                  }, (error:any) => {
-                    this.dialogRef.close(2);
-                  });
     } else if (this.data.action === 'update') {
 
-      let data = {
-        name: this.newSkill.get('name')?.value,
-        icon: this.newSkill.get('icon')?.value,
-        stack: this.data.stack,
-        level: this.level
-      }
-
-      this.skillsService.updateSkill(data, this.data.id)
-      .subscribe( (result:any) => {
+      try{
+        const response = await this.skillsService.updateSkill(data, this.data.id);
         this.dialogRef.close(1);
-      }, (error:any) => {
+      } catch(error) {
         this.dialogRef.close(2);
-      });
+      }
     }
   }
 

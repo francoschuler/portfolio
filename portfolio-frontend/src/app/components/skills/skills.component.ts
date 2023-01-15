@@ -36,9 +36,9 @@ export class SkillsComponent implements OnInit {
    */
   getSkills() {
     this.skillsService.getSkills()
-    .subscribe( ( data:any ) => {
-      this.dataSkill = data; 
-      this.noDataSkill = this.dataSkill.length == 0 ? true : false;
+    .subscribe( ( skills ) => {
+      this.dataSkill = skills; 
+      this.noDataSkill = this.dataSkill.length == 0;
       this.processSkillsResponse(this.dataSkill);
     }, (error:any) => {
       this.noDataSkill = true;
@@ -86,7 +86,7 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  openEditSkillDialog(id:number, name: string, icon: string, stack: string, level: number): void {
+  openEditSkillDialog(id:string | undefined, name: string, icon: string, stack: string, level: number): void {
     const dialogRef = this.dialog.open(NewSkillComponent, {
       width: '500px',
       data: {

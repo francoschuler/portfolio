@@ -21,6 +21,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { ContactmeComponent } from './components/contactme/contactme.component';
 import { NewProjectComponent } from './components/projects/new-project/new-project.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { NewProjectComponent } from './components/projects/new-project/new-proje
     HttpClientModule,
     ReactiveFormsModule,
     InputTextModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

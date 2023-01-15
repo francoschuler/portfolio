@@ -1,46 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { addDoc, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collection } from '@firebase/firestore';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Skill } from '../models/Skill';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private firestore: Firestore) { }
 
 
   /**
    * Gets all skills
    */
-  getSkills() {
-    const endpoint = `${environment.url}/skills`;
-    return this.http.get(endpoint);
+  getSkills(): Observable<Skill[]> {
+    const skillRef = collection(this.firestore, 'skills');
+    return collectionData(skillRef, { idField: 'id' }) as Observable<Skill[]>;
   }
 
   /**
-   * Saves a new skill
+   * Saves a new skill entry
    */
-  saveSkill(body:any){
-    const endpoint = `${environment.url}/skills`;
-    return this.http.post(endpoint, body);
+  saveSkill(skill: Skill){
+    const skillRef = collection(this.firestore, 'skills');
+    return addDoc(skillRef, skill);
   }
 
   /**
-   * Deletes a skill 
+   * Deletes an skill entry
    */
-  deleteSkill(id:any) {
-    const endpoint = `${environment.url}/skills/${id}`;
-    return this.http.delete(endpoint);
+  deleteSkill(skill: Skill) {
+    const docRef = doc(this.firestore, `skills/${skill.id}`);
+    return deleteDoc(docRef);
   }
 
   /**
-   * Updates a skill
+   * Updates an skill entry
    */
 
-  updateSkill(body: any, id: any) {
-    const endpoint = `${environment.url}/skills/${id}`;
-    return this.http.put(endpoint, body);
+  updateSkill(skill: Skill, id: string) {
+    const docRef = doc(this.firestore, `skills/${id}`);
+    return updateDoc(docRef, {...skill});
   }
+
+
 
 }

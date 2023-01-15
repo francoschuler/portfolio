@@ -42,12 +42,10 @@ export class AboutmeComponent implements OnInit {
    * Gets all education entries
    */
   getEducations() {
-    this.loading = true;
     this.educationService.getEducations()
-    .subscribe( async ( data:any ) => {
-      this.dataEducation = data;
-      this.noDataEducation = this.dataEducation.length === 0 ? true : false;
-      this.loading = false;
+    .subscribe( ( educations ) => {
+      this.dataEducation = educations;
+      this.noDataEducation = this.dataEducation.length === 0;
 
     }, (error:any) => {
       this.noDataEducation = true;
@@ -61,9 +59,9 @@ export class AboutmeComponent implements OnInit {
    */
     getEmployments() {
       this.employmentService.getEmployments()
-      .subscribe( ( data:any ) => {
-        this.dataEmployment = data;
-        this.noDataEmployment = this.dataEmployment.length === 0 ? true : false;
+      .subscribe( ( employments ) => {
+        this.dataEmployment = employments;
+        this.noDataEmployment = this.dataEmployment.length === 0;
   
       }, (error:any) => {
         this.noDataEmployment = true;
@@ -91,7 +89,7 @@ export class AboutmeComponent implements OnInit {
     });
   }
 
-  openEditEducationDialog(id:number, title: string, subtitle: string, period: string, description: string): void {
+  openEditEducationDialog(id:string, title: string, subtitle: string, period: string, description: string): void {
     const dialogRef = this.dialog.open(NewEducationComponent, {
       width: '500px',
       data: {
@@ -129,7 +127,7 @@ export class AboutmeComponent implements OnInit {
     });
   }
 
-  openEditEmploymentDialog(id:number, title: string, subtitle: string, period: string, description: string): void {
+  openEditEmploymentDialog(id:string | undefined, title: string, subtitle: string, period: string, description: string): void {
     const dialogRef = this.dialog.open(NewEmploymentComponent, {
       width: '500px',
       data: {

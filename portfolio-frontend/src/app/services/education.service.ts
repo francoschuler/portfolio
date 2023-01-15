@@ -1,47 +1,50 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Education } from '../models/Education';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EducationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private firestore: Firestore) { }
 
 
   /**
    * Gets all educations
    */
-  getEducations() {
-    const endpoint = `${environment.url}/educations`;
-    return this.http.get(endpoint);
+  getEducations(): Observable<Education[]> {
+    const educationRef = collection(this.firestore, 'educations');
+    return collectionData(educationRef, { idField: 'id' }) as Observable<Education[]>;
   }
 
   /**
    * Saves a new education entry
    */
-  saveEducation(body:any){
-    const endpoint = `${environment.url}/educations`;
-    return this.http.post(endpoint, body);
+  saveEducation(education: Education){
+    const educationRef = collection(this.firestore, 'educations');
+    return addDoc(educationRef, education);
   }
 
   /**
    * Deletes an education entry
    */
-  deleteEducation(id:any) {
-    const endpoint = `${environment.url}/educations/${id}`;
-    return this.http.delete(endpoint);
+  deleteEducation(education: Education) {
+    const docRef = doc(this.firestore, `educations/${education.id}`);
+    return deleteDoc(docRef);
   }
 
   /**
    * Updates an education entry
    */
 
-  updateEducation(body: any, id: any) {
-    const endpoint = `${environment.url}/educations/${id}`;
-    return this.http.put(endpoint, body);
+  updateEducation(education: Education, id: string) {
+    const docRef = doc(this.firestore, `educations/${id}`);
+    return updateDoc(docRef, {...education});
   }
 
 

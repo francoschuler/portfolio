@@ -32,19 +32,18 @@ export class ProjectsComponent implements OnInit {
   }
 
       /**
-   * Gets all employment entries
+   * Gets all project entries
    */
     getProjects() {
-        this.projectService.getProjects()
-        .subscribe( ( data:any ) => {
-          // console.log('AQUI', data);
-          this.dataProjects = data;
-          this.noDataProject = this.dataProjects.length === 0 ? true : false;
-    
-        }, (error:any) => {
-          this.noDataProject = true;
-          console.log("ERROR trying to get employments.")
-        });
+      this.projectService.getProjects()
+      .subscribe( ( projects ) => {
+        this.dataProjects = projects;
+        this.noDataProject = this.dataProjects.length === 0;
+  
+      }, (error:any) => {
+        this.noDataProject = true;
+        console.log("ERROR trying to get employments.")
+      });
   
       }
 
@@ -65,7 +64,7 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  openEditProjectDialog(id:number, title: string, description: string, skills: string, urlImg: string, urlDemo: string, urlRepo: string): void {
+  openEditProjectDialog(id:string | undefined, title: string, description: string, skills: string, urlImg: string, urlDemo: string, urlRepo: string): void {
     const dialogRef = this.dialog.open(NewProjectComponent, {
       width: '500px',
       data: {

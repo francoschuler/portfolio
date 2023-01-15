@@ -29,40 +29,40 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteEducation () {
-    this.educationService.deleteEducation(this.data.id)
-                          .subscribe( (data:any) => {
-                            this.dialogRef.close(1);
-                          }, (error:any) => {
-                            this.dialogRef.close(2);
-                          })
-  }
-
-  deleteEmployment () {
-    this.employmentService.deleteEmployment(this.data.id)
-                          .subscribe( (data:any) => {
-                            this.dialogRef.close(1);
-                          }, (error:any) => {
-                            this.dialogRef.close(2);
-                          })
-  }
-
-  deleteSkill() {
-    this.skillsService.deleteSkill(this.data.id)
-    .subscribe( (data:any) => {
+  async deleteEducation () {
+    try{
+      const response = await this.educationService.deleteEducation(this.data);
       this.dialogRef.close(1);
-    }, (error:any) => {
+    } catch(error) {
       this.dialogRef.close(2);
-    })
+    }
   }
 
-  deleteProject() {
-    this.projectService.deleteProject(this.data.id)
-    .subscribe( (data:any) => {
+  async deleteEmployment () {
+    try{
+      const response = await this.employmentService.deleteEmployment(this.data);
       this.dialogRef.close(1);
-    }, (error:any) => {
+    } catch(error) {
       this.dialogRef.close(2);
-    })
+    }
+  }
+
+  async deleteSkill() {
+    try{
+      const response = await this.skillsService.deleteSkill(this.data);
+      this.dialogRef.close(1);
+    } catch(error) {
+      this.dialogRef.close(2);
+    }
+  }
+
+  async deleteProject() {
+    try{
+      const response = await this.projectService.deleteProject(this.data);
+      this.dialogRef.close(1);
+    } catch(error) {
+      this.dialogRef.close(2);
+    }
   }
 
   logout() {

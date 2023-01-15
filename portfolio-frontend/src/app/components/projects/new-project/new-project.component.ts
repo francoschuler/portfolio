@@ -44,31 +44,24 @@ export class NewProjectComponent implements OnInit {
     }
   }
 
-  saveProject() {
+  async saveProject() {
 
-    let data = {
-      title: this.newProject.get('title')?.value,
-      description: this.newProject.get('description')?.value,
-      skills: this.newProject.get('skills')?.value,
-      urlImg: this.newProject.get('urlImg')?.value,
-      urlDemo: this.newProject.get('urlDemo')?.value,
-      urlRepo: this.newProject.get('urlRepo')?.value
-    }
+    const data = this.newProject.value;
 
     if (this.data == null) {
-      this.projectService.saveProject(data)
-                  .subscribe( (result:any) => {
-                    this.dialogRef.close(1);
-                  }, (error:any) => {
-                    this.dialogRef.close(2);
-                  });
-    } else {
-      this.projectService.updateProject(data, this.data.id)
-      .subscribe( (result:any) => {
+      try{
+        const response = await this.projectService.saveProject(data);
         this.dialogRef.close(1);
-      }, (error:any) => {
+      } catch(error) {
         this.dialogRef.close(2);
-      });
+      }
+    } else {
+      try{
+        const response = await this.projectService.updateProject(data, this.data.id);
+        this.dialogRef.close(1);
+      } catch(error) {
+        this.dialogRef.close(2);
+      }
     }
   }
 

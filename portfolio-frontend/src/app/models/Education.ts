@@ -1,6 +1,6 @@
 
 export interface Education {
-    id: number;
+    id: string;
     title: string;
     subtitle: string;
     period: string;

@@ -15,7 +15,7 @@ export class NewEmploymentComponent implements OnInit {
   formType: string = "Add";
 
   constructor(private formBuilder: FormBuilder,
-              private employmentServcie: EmploymentService,
+              private employmentService: EmploymentService,
               private dialogRef: MatDialogRef<NewEmploymentComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
@@ -40,29 +40,24 @@ export class NewEmploymentComponent implements OnInit {
     }
   }
 
-  saveEmployment() {
+  async saveEmployment() {
 
-    let data = {
-      title: this.newEmployment.get('title')?.value,
-      subtitle: this.newEmployment.get('subtitle')?.value,
-      period: this.newEmployment.get('period')?.value,
-      description: this.newEmployment.get('description')?.value
-    }
+    const data = this.newEmployment.value;
 
     if (this.data == null) {
-      this.employmentServcie.saveEmployment(data)
-                  .subscribe( (result:any) => {
-                    this.dialogRef.close(1);
-                  }, (error:any) => {
-                    this.dialogRef.close(2);
-                  });
-    } else {
-      this.employmentServcie.updateEmployment(data, this.data.id)
-      .subscribe( (result:any) => {
+      try{
+        const response = await this.employmentService.saveEmployment(data);
         this.dialogRef.close(1);
-      }, (error:any) => {
+      } catch(error) {
         this.dialogRef.close(2);
-      });
+      }
+    } else {
+      try{
+        const response = await this.employmentService.updateEmployment(data, this.data.id);
+        this.dialogRef.close(1);
+      } catch(error) {
+        this.dialogRef.close(2);
+      }
     }
   }
 

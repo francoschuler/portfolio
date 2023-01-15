@@ -40,29 +40,29 @@ export class NewEducationComponent implements OnInit {
     }
   }
 
-  saveEducation() {
+  async saveEducation() {
 
-    let data = {
-      title: this.newEducation.get('title')?.value,
-      subtitle: this.newEducation.get('subtitle')?.value,
-      period: this.newEducation.get('period')?.value,
-      description: this.newEducation.get('description')?.value
-    }
+    const data = this.newEducation.value;
+    
 
     if (this.data == null) {
-      this.educationService.saveEducation(data)
-                  .subscribe( (result:any) => {
-                    this.dialogRef.close(1);
-                  }, (error:any) => {
-                    this.dialogRef.close(2);
-                  });
-    } else {
-      this.educationService.updateEducation(data, this.data.id)
-      .subscribe( (result:any) => {
+      try{
+        const response = await this.educationService.saveEducation(data);
         this.dialogRef.close(1);
-      }, (error:any) => {
+        console.log(response);
+      } catch(error) {
         this.dialogRef.close(2);
-      });
+      }
+
+      
+    } else {
+      try{
+        const response = await this.educationService.updateEducation(data, this.data.id);
+        this.dialogRef.close(1);
+        console.log(response);
+      } catch(error) {
+        this.dialogRef.close(2);
+      }
     }
 
 
