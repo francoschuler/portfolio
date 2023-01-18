@@ -24,6 +24,7 @@ import { NewProjectComponent } from './components/projects/new-project/new-proje
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     InputTextModule,
     ProgressSpinnerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

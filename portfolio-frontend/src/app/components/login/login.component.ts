@@ -35,25 +35,30 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
-      (res:LoginResponse) => {
+    this.authService.login(this.loginForm.value)
+    .then(
+      () => {
         this.router.navigateByUrl('/');
         this.openSnackBar('Login successful!', 'Ok', 'success-snackbar');
-      },
-      (error:any) => {
-        this.errorMsg = error.error;
-        this.openSnackBar('There was an error. Please, try again.', 'Ok', 'error-snackbar');
-        this.dataOk = false;
-        
+    })
+    .catch( (error) => {
+      switch(error.code){
+        case 'auth/wrong-password':
+            this.errorMsg = 'Password was incorrect.'
+            break;
+
+        case 'auth/user-not-found':
+            this.errorMsg = 'Email was incorrect.'
+            break;
+
+        default:
+            this.errorMsg = 'There was an error trying to log in.'
+            break;
       }
-  );
-  }
-
-  private setSession(authResult:any) {
-    const expiresAt = moment().add(authResult.exp,'second');
-
-    localStorage.setItem('id_token', authResult.sub);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+      this.dataOk = false;
+      
+      }
+    );
   }
 
   openSnackBar(message: string, action: string, panelClass: string) {
@@ -62,36 +67,5 @@ export class LoginComponent implements OnInit {
       panelClass: [panelClass],
     })
   }
-  
-  // this.authService.getUsers()
-  // .subscribe( (users) => {
-  //   const user = users.find( (u:any) => {
-  //     if (u.email === this.loginForm.value.email) {
-  //       this.emailOk = true;
-  //     }else {
-  //       this.emailOk = false;
-  //     }
-
-  //     if(u.password === this.loginForm.value.password) {
-  //       this.passwordOk = true;
-  //     }else {
-  //       this.passwordOk = false;
-  //     }
-  //     return this.emailOk && this.passwordOk;
-  //   })
-
-  //   if(user) {
-  //     console.log('LOGIN SUCCESSFULL');
-  //     this.authService.logged = true;
-  //     this.loginForm.reset();
-  //     this.router.navigateByUrl('/');
-  //   }else {
-  //     this.authService.logged = false;
-  //     console.log('USER NOT FOUND');
-      
-  //   }
-  // })
-
-
 
 }

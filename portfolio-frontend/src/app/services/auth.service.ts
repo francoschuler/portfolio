@@ -1,43 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject, first, map, Observable, shareReplay, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginResponse, User } from '../models/User';
+import { LoginResponse } from '../models/User';
 
-import * as moment from "moment";
-import jwt_decode from 'jwt-decode';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { signOut } from '@firebase/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private auth: Auth) {}
 
-//   {
-//     "email": "franschuler20@hotmail.com",
-//     "iat": 1667750200,
-//     "exp": 1667753800,
-//     "sub": "1"
-// }
-
-  login(email: string, password: string) {
-    return this.http.post<LoginResponse>(`${environment.url}/login`, {email, password})
-    .pipe(map((res => {
-      if (res && res.accessToken) {
-        localStorage.setItem('user', JSON.stringify(res));
-      }
-      return res;
-    })));
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   logout() {
-      localStorage.removeItem('user');
+      return signOut(this.auth);
   }
 
-  public isLoggedIn() {
+  isLoggedIn() {
       // return localStorage.getItem('user') != null;
-      return true;
+      return this.auth.currentUser !== null;
   }  
 }
