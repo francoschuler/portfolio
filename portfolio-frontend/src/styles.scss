@@ -3,6 +3,12 @@
 @import "primeflex/primeflex.css";
 @import "primeng/resources/themes/bootstrap4-light-blue/theme.css";
 
+:root {
+    @media only screen and (max-width: 1400px) {
+        font-size: 14px;
+    }
+}
+
 html {
     box-sizing: border-box;
     }

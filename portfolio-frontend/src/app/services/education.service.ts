@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collectionData, deleteDoc, doc, Firestore, orderBy, query, updateDoc } from '@angular/fire/firestore';
 import { addDoc, collection } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -19,7 +19,8 @@ export class EducationService {
    */
   getEducations(): Observable<Education[]> {
     const educationRef = collection(this.firestore, 'educations');
-    return collectionData(educationRef, { idField: 'id' }) as Observable<Education[]>;
+    const q = query(educationRef, orderBy('period', 'desc'));
+    return collectionData(q, { idField: 'id' }) as Observable<Education[]>;
   }
 
   /**
