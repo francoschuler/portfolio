@@ -7,5 +7,6 @@ export const environment = {
     apiKey: 'AIzaSyB5TypkwdwcUiUutB5bkZLFJDrbxVp6ycM',
     authDomain: 'app-portfolio-d6541.firebaseapp.com',
     messagingSenderId: '454280113409',
-  }
+  },
+  production: true
 };
