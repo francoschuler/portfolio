@@ -27,9 +27,9 @@ export class NewProjectComponent implements OnInit {
         title: ['', Validators. required],
         description: ['', Validators. required],
         skills: ['', Validators.required],
-        urlImg: ['', Validators. required],
-        urlDemo: ['', Validators. required],
-        urlRepo: ['', Validators. required],
+        urlImg: ['', Validators.required],
+        urlDemo: [''],
+        urlRepo: ['', Validators.required],
       });
     } else {
       this.formType = "Update";
@@ -38,7 +38,7 @@ export class NewProjectComponent implements OnInit {
         description: [this.data.description, Validators. required],
         skills: [this.data.skills, Validators.required],
         urlImg: [this.data.urlImg, Validators. required],
-        urlDemo: [this.data.urlDemo, Validators. required],
+        urlDemo: [this.data.urlDemo],
         urlRepo: [this.data.urlRepo, Validators. required],
       })
     }

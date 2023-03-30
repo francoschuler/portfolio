@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="actions">
-                    <a [href]="project.urlDemo"><button class="red-btn"> Live demo </button></a>
+                    <a *ngIf="project.urlDemo" [href]="project.urlDemo"><button class="red-btn"> Live demo </button></a>
                     <a [href]="project.urlRepo"><button class="blue-btn"> Repository </button></a>
                 </div>
             </div>

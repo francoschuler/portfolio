@@ -1,5 +1,4 @@
-import { ViewportScroller } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Typed from 'typed.js';
 
@@ -10,14 +9,12 @@ import Typed from 'typed.js';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private viewportScroller: ViewportScroller,
-              private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
-
     const typeOptions = {
-      strings: ['Junior Web Developer', 'Computer Science Engineer', 'Private Teacher'],
+      strings: ['Computer Science Engineer', 'ReactJS Developer', 'Angular (+14) Developer'],
       startDelay: 500,
       typeSpeed: 100,
       backSpeed: 25,

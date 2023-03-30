@@ -49,7 +49,7 @@ export class AboutmeComponent implements OnInit {
 
     }, (error:any) => {
       this.noDataEducation = true;
-      console.log("ERROR trying to get educations.")
+      console.log("ERROR trying to get educations.", error)
     });
 
   }
@@ -65,7 +65,7 @@ export class AboutmeComponent implements OnInit {
   
       }, (error:any) => {
         this.noDataEmployment = true;
-        console.log("ERROR trying to get employments.")
+        console.log("ERROR trying to get employments.", error)
       });
 
     }
